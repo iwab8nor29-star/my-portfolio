@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+https://coconala.com/users/5614202#services<!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -271,8 +271,88 @@
         </div>
 
       </div>
+
+      <!-- すべて表示ボタン -->
+      <div class="mt-10 text-center">
+        <button id="openWorksModal"
+          class="inline-flex items-center gap-2 border border-white/15 text-gray-300 px-8 py-3 rounded-full text-sm hover:border-accent/40 hover:text-accent transition-all">
+          <span>すべての実績を見る</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+          </svg>
+        </button>
+      </div>
     </div>
   </section>
+
+  <!-- ===== 追加実績モーダル ===== -->
+  <div id="worksModal"
+    class="fixed inset-0 z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <!-- オーバーレイ -->
+    <div id="worksModalOverlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <!-- パネル -->
+    <div class="relative z-10 w-full max-w-5xl max-h-[85vh] overflow-y-auto bg-[#111] border border-white/10 rounded-3xl p-8 shadow-2xl">
+      <!-- ヘッダー -->
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <p class="text-xs tracking-widest text-accent uppercase mb-1">All Works</p>
+          <h3 class="text-2xl font-bold">すべての制作実績</h3>
+        </div>
+        <button id="closeWorksModal"
+          class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors text-gray-400 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <!-- ━━━ 追加実績カード一覧 ━━━
+           新しい実績はここに追記するだけでOK -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Extra Work 1 : CORE -->
+        <div class="bg-white/[0.03] border border-white/8 rounded-2xl overflow-hidden card-hover group">
+          <div class="h-44 bg-gradient-to-br from-yellow-900/40 to-orange-900/20 relative flex items-center justify-center">
+            <span class="text-5xl opacity-60">🏅</span>
+            <div class="absolute top-3 right-3">
+              <span class="badge bg-gray-500/20 text-gray-400 border border-gray-500/30">LP</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-gray-500 mb-1">スポーツ・コミュニティ</p>
+            <h3 class="font-bold text-sm mb-2">CORE — 社会人限定スポーツコミュニティLP</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">「部活時間、再開。」をコンセプトに、社会人向けスポーツコミュニティの集客LPを制作。</p>
+            <a href="../CORE/index.html" target="_blank" rel="noopener noreferrer"
+              class="mt-4 inline-flex items-center gap-1 text-xs text-accent hover:underline">詳細を見る →</a>
+          </div>
+        </div>
+
+        <!-- ↓ 追加実績はここにコピペ ↓ -->
+
+      </div>
+      <!-- モーダルフッター -->
+      <p class="text-center text-xs text-gray-600 mt-8">他にもご相談ください。お客様の業種に合わせたご提案をします。</p>
+    </div>
+  </div>
+
+  <script>
+    const modal   = document.getElementById('worksModal');
+    const overlay = document.getElementById('worksModalOverlay');
+    const openBtn = document.getElementById('openWorksModal');
+    const closeBtn= document.getElementById('closeWorksModal');
+
+    function openModal() {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    }
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
 
   <!-- 料金目安 -->
   <section id="pricing" class="py-24">
@@ -436,7 +516,7 @@
         </a>
 
         <!-- ココナラ -->
-        <a href="https://coconala.com/" target="_blank" rel="noopener noreferrer"
+        <a href="https://coconala.com/users/5614202#services" target="_blank" rel="noopener noreferrer"
            class="group bg-white/[0.03] border border-white/8 hover:border-accent/30 rounded-2xl p-7 flex flex-col items-center gap-3 card-hover transition-all">
           <div class="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center text-2xl group-hover:bg-green-500/20 transition-colors">
             🥥
