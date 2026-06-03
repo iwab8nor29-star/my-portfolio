@@ -1,1746 +1,886 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="炭火 壽限無（jugemu）｜神奈川県厚木市愛甲の完全個室炭火焼肉。能登の切り出し七輪で炙る、オーナー厳選の銘柄牛。接待・記念日に。">
-  <meta name="keywords" content="炭火焼肉,壽限無,jugemu,厚木,愛甲,個室焼肉,記念日,接待,能登七輪,銘柄牛">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#1a1a1a">
-
-  <!-- OGP -->
-  <meta property="og:title" content="炭火 壽限無（jugemu）｜神奈川・厚木の高級炭火焼肉">
-  <meta property="og:description" content="能登の切り出し七輪で炙る、オーナー厳選の銘柄牛。完全個室で贈る特別な一夜。接待・記念日に。">
-  <meta property="og:type" content="restaurant">
-  <meta property="og:url" content="https://www.jugemjugem.com/">
-  <meta property="og:image" content="https://placehold.co/1200x630/1a1a1a/c9a84c?text=炭火+壽限無">
-  <meta property="og:site_name" content="炭火 壽限無（jugemu）">
-  <meta property="og:locale" content="ja_JP">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <title>炭火 壽限無（jugemu）｜神奈川・厚木の完全個室炭火焼肉</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>さくら整骨院 | 交通事故・むちうち専門 | 大阪市北区</title>
+  <meta name="description" content="大阪市北区のさくら整骨院。交通事故・むちうち専門。自賠責保険対応で自己負担0円。交通事故後の痛み・しびれ・頭痛はお任せください。" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            gold:    { DEFAULT: '#c9a84c', light: '#e0c070', dark: '#a07828', pale: '#2a2416' },
-            ink:     { DEFAULT: '#1a1a1a', deep: '#0d0d0d', mid: '#222222', light: '#2d2d2d', muted: '#3a3a3a' },
-            cream:   { DEFAULT: '#f5f0e8', muted: '#b8a898', dim: '#7a7060' },
+            primary: '#2d8a6e',
+            'primary-dark': '#216655',
+            'primary-light': '#3aab89',
+            'primary-pale': '#e8f5f1',
           },
           fontFamily: {
-            serif:  ['Noto Serif JP', '游明朝', 'Yu Mincho', 'YuMincho', 'HiraMinPro-W3', 'serif'],
-            latin:  ['Cormorant Garamond', 'Garamond', 'Georgia', 'serif'],
-            sans:   ['游ゴシック', 'Yu Gothic', 'YuGothic', 'Hiragino Sans', 'sans-serif'],
-          }
+            sans: ['Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'sans-serif'],
+          },
         }
       }
     }
   </script>
-
   <style>
-    /* ─── Global ─────────────────────────────────────────────── */
-    html  { scroll-behavior: smooth; }
-    body  {
-      background: #1a1a1a; color: #f5f0e8;
-      font-family: 'Noto Serif JP', serif;
-      -webkit-font-smoothing: antialiased;
-      /* 日本語プロポーショナルカーニング */
-      font-feature-settings: "palt" 1;
+    html { scroll-behavior: smooth; }
+    .hero-bg {
+      background: linear-gradient(135deg, #f0faf6 0%, #e0f2ec 50%, #d0ebe3 100%);
     }
-    ::selection { background: rgba(201,168,76,.35); color: #f5f0e8; }
-
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #0d0d0d; }
-    ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 2px; }
-
-    /* ─── Typography helpers ──────────────────────────────────── */
-    .font-latin    { font-family: 'Cormorant Garamond', serif; }
-    .tracking-hero { letter-spacing: .12em; }
-    .tracking-wide-jp { letter-spacing: .35em; }
-
-    /* ─── Gold rules / decorations ───────────────────────────── */
-    .gold-rule { height: 1px; background: linear-gradient(90deg, transparent 0%, #c9a84c 50%, transparent 100%); }
-    .gold-rule-v { width: 1px; background: linear-gradient(180deg, transparent 0%, #c9a84c 50%, transparent 100%); }
-
-    /* ─── Section titles ──────────────────────────────────────── */
-    .sec-en {
-      font-family: 'Cormorant Garamond', serif;
-      color: #c9a84c; letter-spacing: .55em; font-weight: 300;
-      font-style: italic; font-size: .75rem;
+    .step-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 100%;
+      height: 2px;
+      background: #2d8a6e;
+      transform: translateY(-50%);
     }
-    .sec-jp { letter-spacing: .45em; font-weight: 400; }
-
-    /* ─── Reveal ──────────────────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-left  { opacity: 0; transform: translateX(-24px); transition: opacity .9s ease, transform .9s ease; }
-    .reveal-right { opacity: 0; transform: translateX( 24px); transition: opacity .9s ease, transform .9s ease; }
-    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
-
-    /* ─── Buttons ──────────────────────────────────────────────── */
-    .btn-gold {
-      background: #c9a84c; color: #0d0d0d; letter-spacing: .2em; font-weight: 600;
-      transition: background .3s, transform .25s, box-shadow .25s;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .btn-gold:hover { background: #e0c070; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,.45); }
-
-    .btn-outline {
-      border: 1px solid rgba(201,168,76,.7); color: #c9a84c; letter-spacing: .2em;
-      transition: background .3s, border-color .3s, transform .25s;
+    .fade-in { animation: fadeInUp 0.6s ease both; }
+    .check-item::before {
+      content: '✓';
+      color: #2d8a6e;
+      font-weight: bold;
+      margin-right: 8px;
     }
-    .btn-outline:hover { background: rgba(201,168,76,.08); border-color: #c9a84c; transform: translateY(-2px); }
-
-    /* ─── Nav ──────────────────────────────────────────────────── */
-    .nav-a { letter-spacing: .15em; font-size: .75rem; transition: color .25s; position: relative; padding-bottom: 2px; }
-    .nav-a::after {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
-      background: #c9a84c; transition: width .3s;
-    }
-    .nav-a:hover { color: #c9a84c; }
-    .nav-a:hover::after { width: 100%; }
-
-    /* ─── Hero ─────────────────────────────────────────────────── */
-    .hero-vignette {
-      background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.6) 100%),
-                  linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);
-    }
-
-    /* ─── こだわり cards ────────────────────────────────────────── */
-    .kodawari-card {
-      border: 1px solid rgba(201,168,76,.18);
-      transition: border-color .35s, box-shadow .35s, transform .35s;
-    }
-    .kodawari-card:hover {
-      border-color: rgba(201,168,76,.55); transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(201,168,76,.08);
-    }
-    .kodawari-icon {
-      width: 64px; height: 64px; border-radius: 50%;
-      border: 1px solid rgba(201,168,76,.4);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; margin: 0 auto 1.25rem;
-      transition: border-color .3s, background .3s;
-    }
-    .kodawari-card:hover .kodawari-icon { border-color: #c9a84c; background: rgba(201,168,76,.07); }
-
-    /* ─── Course cards ─────────────────────────────────────────── */
-    .course-card {
-      background: #1e1c14; border: 1px solid rgba(201,168,76,.2);
-      transition: border-color .35s, transform .35s, box-shadow .35s;
-    }
-    .course-card:hover { border-color: rgba(201,168,76,.6); transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,.5); }
-    .course-featured {
-      background: linear-gradient(155deg, #221f12 0%, #1c1a0e 100%);
-      border-color: rgba(201,168,76,.6); position: relative; overflow: hidden;
-    }
-    .course-featured::before {
-      content: '人気No.1'; position: absolute; top: 16px; right: -28px;
-      background: #c9a84c; color: #0d0d0d; font-size: .6rem; font-weight: 700;
-      letter-spacing: .15em; padding: 4px 40px; transform: rotate(45deg);
-    }
-    .price-num { font-family: 'Playfair Display', 'Cormorant Garamond', serif; font-weight: 400; font-style: italic; color: #c9a84c; letter-spacing: .04em; }
-
-    /* ─── Menu grid ────────────────────────────────────────────── */
-    .menu-cell { position: relative; overflow: hidden; cursor: pointer; }
-    .menu-cell img { transition: transform .6s ease; display: block; width: 100%; height: 100%; object-fit: cover; }
-    .menu-cell:hover img { transform: scale(1.08); }
-    .menu-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.1) 55%, transparent 100%);
-      transition: opacity .3s;
-    }
-    .menu-cell:hover .menu-overlay { opacity: 1; background: linear-gradient(0deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.4) 100%); }
-    .menu-label { position: absolute; bottom: 0; left: 0; right: 0; padding: .75rem 1rem; }
-
-    /* ─── Room cards ───────────────────────────────────────────── */
-    .room-card { border: 1px solid rgba(201,168,76,.2); overflow: hidden; transition: border-color .35s, transform .3s, box-shadow .35s; }
-    .room-card:hover { border-color: rgba(201,168,76,.55); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.5); }
-    .room-img { overflow: hidden; }
-    .room-img img { transition: transform .6s ease; }
-    .room-card:hover .room-img img { transform: scale(1.06); }
-
-    /* ─── Review ───────────────────────────────────────────────── */
-    .review-card { border: 1px solid rgba(201,168,76,.15); transition: border-color .3s; }
-    .review-card:hover { border-color: rgba(201,168,76,.4); }
-    .quote-open { font-family: Georgia, serif; font-size: 3rem; line-height: .8; color: rgba(201,168,76,.25); }
-
-    /* ─── Hours table ──────────────────────────────────────────── */
-    .hours-tr { border-bottom: 1px solid rgba(201,168,76,.1); }
-    .hours-tr:last-child { border-bottom: none; }
-
-    /* ─── Scroll cue ───────────────────────────────────────────── */
-    @keyframes scroll-cue { 0%{opacity:0;transform:translateY(-5px)} 50%{opacity:1} 100%{opacity:0;transform:translateY(7px)} }
-    .scroll-cue { animation: scroll-cue 2s ease-in-out infinite; }
-
-    /* ─── Vertical text deco ───────────────────────────────────── */
-    .v-text { writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: .3em; }
-
-    /* ─── Subtle noise texture ─────────────────────────────────── */
-    .noise-overlay {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-
-    /* ─── CTA gradient ─────────────────────────────────────────── */
-    .cta-bg {
-      background: linear-gradient(135deg, #0d0d0d 0%, #1a1608 40%, #251e0a 70%, #0d0d0d 100%);
-    }
-
-    /* ─── Float CTA ────────────────────────────────────────────── */
-    .float-cta { box-shadow: 0 -2px 20px rgba(0,0,0,.6); }
-
-    /* ─── Pulse anim on main CTA ────────────────────────────────── */
-    @keyframes pulse-gold { 0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.4)} 50%{box-shadow:0 0 0 10px rgba(201,168,76,0)} }
-    .pulse-gold { animation: pulse-gold 2.5s ease-in-out infinite; }
-
-    /* ─── Page-top button ────────────────────────────────────────── */
-    #page-top {
-      position: fixed; right: 1.25rem; bottom: 5rem;
-      width: 44px; height: 44px;
-      border: 1px solid rgba(201,168,76,.5);
-      background: rgba(13,13,13,.85);
-      backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      color: #c9a84c; cursor: pointer; z-index: 49;
-      opacity: 0; transform: translateY(8px);
-      transition: opacity .4s, transform .4s, background .25s, border-color .25s;
-      pointer-events: none;
-    }
-    #page-top.show { opacity: 1; transform: none; pointer-events: auto; }
-    #page-top:hover { background: rgba(201,168,76,.12); border-color: #c9a84c; }
-
-    /* ─── Float CTA no-border fix ───────────────────────────────── */
-    .float-btn-net {
-      flex: 1; display: flex; align-items: center; justify-content: center; gap: .5rem;
-      color: #c9a84c; font-size: .75rem; letter-spacing: .2em;
-      transition: background .25s;
-    }
-    .float-btn-net:hover { background: rgba(201,168,76,.08); }
-
-    /* ─── Aspect-square fallback ─────────────────────────────────── */
-    .aspect-sq { aspect-ratio: 1 / 1; }
-
-    /* ─── Drink menu table ───────────────────────────────────────── */
-    .drink-cat-title {
-      font-family: 'Noto Serif JP', serif; font-size: .8rem;
-      letter-spacing: .25em; color: #c9a84c; margin-bottom: .4rem; font-weight: 500;
-    }
-    .drink-rule { height: 1px; background: rgba(201,168,76,.2); margin-bottom: .75rem; }
-    .drink-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: .35rem 0; border-bottom: 1px solid rgba(201,168,76,.07);
-      color: #b8a898; font-size: .8rem; letter-spacing: .1em; gap: 1rem;
-    }
-    .drink-row span:last-child {
-      flex-shrink: 0; font-family: 'Playfair Display', serif;
-      font-style: italic; color: #c9a84c; font-size: .85rem;
-    }
-
-    /* ─── Menu filter buttons ────────────────────────────────────── */
-    .menu-filter-btn { cursor: pointer; background: transparent; }
-    .menu-filter-btn.active { background: rgba(201,168,76,.12); border-color: #c9a84c; color: #c9a84c; }
-    .menu-filter-btn:hover { border-color: rgba(201,168,76,.5); color: #c9a84c; }
-    .menu-cell.hidden-item { display: none; }
-
-    /* ─── Form ───────────────────────────────────────────────────── */
-    .form-label {
-      display: block; font-family: 'Noto Serif JP', serif;
-      font-size: .75rem; letter-spacing: .2em; color: #b8a898; margin-bottom: .5rem;
-    }
-    .form-input {
-      width: 100%; background: #1a1a1a; border: 1px solid rgba(201,168,76,.25);
-      color: #f5f0e8; padding: .75rem 1rem; font-family: 'Noto Serif JP', serif;
-      font-size: .875rem; outline: none; transition: border-color .25s, box-shadow .25s;
-      -webkit-appearance: none; appearance: none;
-    }
-    .form-input::placeholder { color: #4a4540; }
-    .form-input:focus {
-      border-color: rgba(201,168,76,.7);
-      box-shadow: 0 0 0 2px rgba(201,168,76,.08);
-    }
-    .form-input.is-error { border-color: rgba(220,80,80,.6); }
-    .form-select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 1rem center;
-      padding-right: 2.5rem; cursor: pointer;
-    }
-    .form-error {
-      font-size: .7rem; letter-spacing: .1em; color: #e06060;
-      margin-top: .35rem; min-height: 1rem;
-    }
-    /* radio buttons */
-    .radio-label { cursor: pointer; }
-    .radio-input { display: none; }
-    .radio-box {
-      display: inline-block; border: 1px solid rgba(201,168,76,.3);
-      color: #b8a898; font-size: .75rem; letter-spacing: .15em;
-      padding: .5rem 1.25rem; transition: background .2s, border-color .2s, color .2s;
-    }
-    .radio-input:checked + .radio-box {
-      background: rgba(201,168,76,.12); border-color: #c9a84c; color: #c9a84c;
-    }
-    .radio-label:hover .radio-box { border-color: rgba(201,168,76,.6); color: #c9a84c; }
-    /* date input calendar icon tint */
-    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.7) sepia(1) saturate(2) hue-rotate(5deg); cursor: pointer; }
-    /* submit loading state */
-    #form-submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
   </style>
 </head>
-<body class="bg-ink">
+<body class="font-sans text-gray-800 bg-white">
 
-
-<!-- ══════════════════════════════════════════════════════
-     NAVIGATION
-══════════════════════════════════════════════════════ -->
-<header class="fixed inset-x-0 top-0 z-50 bg-ink-deep/90 backdrop-blur-md border-b border-gold/10">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-
-    <!-- Logo -->
-    <a href="#hero" class="flex items-center gap-3">
-      <span class="text-gold font-latin text-xs tracking-[.4em] italic hidden sm:block">jugemu</span>
-      <span class="text-cream-muted opacity-40 hidden sm:block">|</span>
-      <span class="font-serif text-cream text-base tracking-[.25em]">壽限無</span>
-    </a>
-
-    <!-- Desktop nav -->
-    <nav class="hidden lg:flex items-center gap-7 text-cream-muted">
-      <a href="#kodawari" class="nav-a">こだわり</a>
-      <a href="#course"   class="nav-a">コース</a>
-      <a href="#menu"     class="nav-a">メニュー</a>
-      <a href="#room"     class="nav-a">個室</a>
-      <a href="#review"   class="nav-a">お客様の声</a>
-      <a href="#access"   class="nav-a">アクセス</a>
-      <a href="#reserve"  class="nav-a">ご予約</a>
+<!-- ===== ナビゲーション ===== -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl text-primary">🌸</span>
+      <div>
+        <p class="text-lg font-bold text-primary leading-tight">さくら整骨院</p>
+        <p class="text-xs text-gray-500">交通事故・むちうち専門</p>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+      <a href="#symptoms" class="hover:text-primary transition-colors">症状</a>
+      <a href="#reasons"  class="hover:text-primary transition-colors">選ばれる理由</a>
+      <a href="#flow"     class="hover:text-primary transition-colors">施術の流れ</a>
+      <a href="#price"    class="hover:text-primary transition-colors">料金</a>
+      <a href="#access"   class="hover:text-primary transition-colors">アクセス</a>
     </nav>
-
-    <!-- Nav CTA -->
-    <a href="tel:046-000-0000"
-       class="btn-gold font-serif text-xs px-5 py-2.5 rounded-none tracking-[.2em] hidden sm:flex items-center gap-2">
-      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.47 11.47 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.6 1 1 0 01-.25 1.02z"/>
-      </svg>
-      ご予約
+    <a href="tel:06-0000-0000"
+       class="bg-primary text-white text-sm font-bold px-4 py-2 rounded-full hover:bg-primary-dark transition-colors shadow">
+      📞 無料相談
     </a>
   </div>
 </header>
 
-
-<!-- ══════════════════════════════════════════════════════
-     1. HERO
-══════════════════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-
-  <!-- BG -->
-  <img src="https://placehold.co/1920x1080/111008/c9a84c?text=+"
-       alt="壽限無 料理イメージ" class="absolute inset-0 w-full h-full object-cover">
-  <div class="hero-vignette absolute inset-0"></div>
-  <!-- noise overlay -->
-  <div class="noise-overlay absolute inset-0 opacity-50"></div>
-
-  <!-- Side decorations -->
-  <div class="absolute left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4">
-    <div class="gold-rule-v h-20"></div>
-    <span class="v-text text-gold/40 text-[.6rem] tracking-[.5em]">CHARCOAL GRILL</span>
-    <div class="gold-rule-v h-20"></div>
+<!-- ===== 1. ヒーロー ===== -->
+<section class="hero-bg pt-24 pb-16 md:pt-32 md:pb-24">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+    <div class="flex-1 fade-in">
+      <p class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide">
+        大阪市北区 交通事故・むちうち専門
+      </p>
+      <h1 class="text-3xl md:text-5xl font-bold leading-snug text-gray-900 mb-6">
+        交通事故のつらい痛み、<br />
+        <span class="text-primary">我慢していませんか？</span>
+      </h1>
+      <p class="text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
+        事故後の首・腰・頭の痛みは<strong class="text-gray-800">放置すると悪化</strong>します。<br />
+        当院は<strong class="text-primary">自賠責保険対応で自己負担0円</strong>。<br />
+        交通事故治療に特化した専門スタッフが丁寧に対応します。
+      </p>
+      <ul class="mb-8 space-y-1 text-sm text-gray-700">
+        <li class="check-item">保険会社への連絡・手続きサポートあり</li>
+        <li class="check-item">事故当日から通院OK</li>
+        <li class="check-item">予約優先・待ち時間が少ない</li>
+      </ul>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#contact"
+           class="bg-primary text-white text-center font-bold px-8 py-4 rounded-full shadow-lg hover:bg-primary-dark transition-colors text-lg">
+          🌸 無料相談・予約はこちら
+        </a>
+        <a href="tel:06-0000-0000"
+           class="border-2 border-primary text-primary text-center font-bold px-8 py-4 rounded-full hover:bg-primary-pale transition-colors text-lg">
+          📞 06-0000-0000
+        </a>
+      </div>
+      <p class="text-xs text-gray-500 mt-3">※ 診療時間：月〜土 9:00〜20:00（日祝休）</p>
+    </div>
+    <div class="flex-1 max-w-sm w-full">
+      <img src="https://placehold.co/480x360/e8f5f1/2d8a6e?text=さくら整骨院"
+           alt="さくら整骨院 外観"
+           class="rounded-2xl shadow-xl w-full object-cover" />
+    </div>
   </div>
-  <div class="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4">
-    <div class="gold-rule-v h-20"></div>
-    <span class="v-text text-gold/40 text-[.6rem] tracking-[.5em]">ATSUGI AIKOH</span>
-    <div class="gold-rule-v h-20"></div>
+</section>
+
+<!-- 実績バナー -->
+<div class="bg-primary py-5">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-white">
+      <div>
+        <p class="text-3xl font-bold">1,200<span class="text-lg">件以上</span></p>
+        <p class="text-xs opacity-80 mt-1">交通事故治療実績</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold">98<span class="text-lg">%</span></p>
+        <p class="text-xs opacity-80 mt-1">患者満足度</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold">0<span class="text-lg">円</span></p>
+        <p class="text-xs opacity-80 mt-1">自己負担（自賠責適用時）</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold">15<span class="text-lg">年</span></p>
+        <p class="text-xs opacity-80 mt-1">地域での施術経験</p>
+      </div>
+    </div>
   </div>
+</div>
 
-  <!-- Content -->
-  <div class="relative z-10 text-center px-6 pt-16">
-    <!-- Eyebrow -->
-    <p class="font-latin italic text-gold text-sm tracking-[.6em] mb-6 opacity-90">
-      jugemu — since 2018
-    </p>
-
-    <!-- Main tagline -->
-    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl xl:text-7xl text-cream tracking-hero leading-[1.6] mb-8" style="text-shadow: 0 2px 30px rgba(0,0,0,.9);">
-      至福の一皿を、<br>あなたに
-    </h1>
-
-    <!-- Gold divider -->
-    <div class="gold-rule w-32 mx-auto mb-8"></div>
-
-    <!-- Sub -->
-    <p class="font-serif text-cream-muted text-sm sm:text-base tracking-[.25em] mb-3 leading-relaxed">
-      能登の切り出し七輪で炙る、オーナー厳選の銘柄牛
-    </p>
-    <p class="text-cream-dim text-xs tracking-[.3em] mb-12">
-      神奈川県厚木市愛甲 ｜ 完全個室
-    </p>
-
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#reserve"
-         class="btn-gold pulse-gold font-serif text-sm sm:text-base px-10 py-4 inline-flex items-center justify-center gap-3">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
-        </svg>
-        ご予約・お問合わせ
+<!-- ===== 2. こんな症状でお悩みの方へ ===== -->
+<section id="symptoms" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Symptoms</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        こんな症状でお悩みの方へ
+      </h2>
+      <p class="text-gray-600 max-w-xl mx-auto">
+        交通事故後の症状は、すぐに現れないことも。「様子を見よう」は危険です。<br />
+        一つでも当てはまる方は、早めにご相談ください。
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <!-- 症状1 -->
+      <div class="border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all group">
+        <div class="w-14 h-14 bg-primary-pale rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+          <span class="text-2xl">🤕</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-gray-900">首・肩の痛み（むちうち）</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          事故後から首が痛い、肩が凝る、回しにくい。むちうちは適切な治療で改善できます。
+        </p>
+      </div>
+      <!-- 症状2 -->
+      <div class="border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all group">
+        <div class="w-14 h-14 bg-primary-pale rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+          <span class="text-2xl">💢</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-gray-900">頭痛・めまい</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          頭が重い、ズキズキする、ふらつく。これらは外傷性頸部症候群の典型的な症状です。
+        </p>
+      </div>
+      <!-- 症状3 -->
+      <div class="border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all group">
+        <div class="w-14 h-14 bg-primary-pale rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+          <span class="text-2xl">🖐️</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-gray-900">手・腕のしびれ</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          手先がしびれる、力が入りにくい。神経圧迫のサインかもしれません。放置は禁物です。
+        </p>
+      </div>
+      <!-- 症状4 -->
+      <div class="border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all group">
+        <div class="w-14 h-14 bg-primary-pale rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+          <span class="text-2xl">🦴</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-gray-900">腰・背中の痛み</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          座るのがつらい、立ち上がりが痛い。衝突時の衝撃が腰椎に影響していることがあります。
+        </p>
+      </div>
+      <!-- 症状5 -->
+      <div class="border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all group">
+        <div class="w-14 h-14 bg-primary-pale rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+          <span class="text-2xl">😴</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-gray-900">倦怠感・不眠</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          体がだるい、眠れない、集中できない。交通事故後のストレス反応として現れることがあります。
+        </p>
+      </div>
+      <!-- 症状6 -->
+      <div class="border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all group">
+        <div class="w-14 h-14 bg-primary-pale rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+          <span class="text-2xl">😟</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-gray-900">事故後の不安・焦り</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          保険手続きが不安、症状が残るか心配。当院がサポートしますので、まずはご相談ください。
+        </p>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-gray-600 mb-4 font-medium">「痛みはないけど、念のため診てほしい」もOKです</p>
+      <a href="#contact" class="inline-block bg-primary text-white font-bold px-10 py-4 rounded-full shadow-md hover:bg-primary-dark transition-colors">
+        🌸 無料相談・ご予約はこちら
       </a>
-      <a href="#course"
-         class="btn-outline font-serif text-sm sm:text-base px-10 py-4 inline-flex items-center justify-center gap-2">
-        コースを見る
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-        </svg>
-      </a>
     </div>
-
-    <!-- Trust -->
-    <div class="mt-14 flex flex-wrap justify-center gap-6 text-cream-dim text-[.65rem] tracking-[.25em]">
-      <span>完全個室</span>
-      <span class="text-gold/30">|</span>
-      <span>能登の切り出し七輪</span>
-      <span class="text-gold/30">|</span>
-      <span>接待・記念日対応</span>
-      <span class="text-gold/30">|</span>
-      <span>ソムリエ在籍</span>
-    </div>
-  </div>
-
-  <!-- Scroll cue -->
-  <div class="absolute bottom-8 inset-x-0 flex flex-col items-center gap-2">
-    <span class="text-cream-dim text-[.6rem] tracking-[.5em]">SCROLL</span>
-    <div class="w-px h-8 bg-gradient-to-b from-transparent to-gold/50 scroll-cue"></div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     GOLD RULE DIVIDER
-══════════════════════════════════════════════════════ -->
-<div class="gold-rule w-full opacity-30"></div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     2. こだわり
-══════════════════════════════════════════════════════ -->
-<section id="kodawari" class="py-28 px-6" style="background:#141414;">
-  <div class="max-w-5xl mx-auto text-center">
-
-    <p class="sec-en mb-3">Our Commitment</p>
-    <h2 class="sec-jp font-serif text-2xl sm:text-3xl text-cream mb-6">こだわり</h2>
-    <div class="gold-rule w-20 mx-auto mb-16"></div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
-
-      <!-- こだわり 1: 肉質 -->
-      <div class="reveal kodawari-card bg-ink-mid rounded-none p-8 lg:p-10">
-        <div class="kodawari-icon">🥩</div>
-        <p class="sec-en mb-2 text-center">Meat Quality</p>
-        <h3 class="font-serif text-lg text-cream tracking-[.2em] mb-5 text-center">肉質へのこだわり</h3>
-        <div class="gold-rule w-10 mx-auto mb-5"></div>
-        <p class="text-cream-muted text-sm leading-[2] tracking-wide text-left">
-          オーナー自ら産地に足を運び、目利きで厳選した国産銘柄牛のみを仕入れ。部位ごとに最適な熟成を施し、炭火の旨みを最大限に引き出します。
-        </p>
-      </div>
-
-      <!-- こだわり 2: 空間 -->
-      <div class="reveal kodawari-card bg-ink-mid rounded-none p-8 lg:p-10" style="transition-delay:.1s">
-        <div class="kodawari-icon">🏮</div>
-        <p class="sec-en mb-2 text-center">Atmosphere</p>
-        <h3 class="font-serif text-lg text-cream tracking-[.2em] mb-5 text-center">空間へのこだわり</h3>
-        <div class="gold-rule w-10 mx-auto mb-5"></div>
-        <p class="text-cream-muted text-sm leading-[2] tracking-wide text-left">
-          能登の職人が切り出した本物の七輪が織りなす炭火の揺らぎ。落ち着いた和の個室空間で、日常から切り離された特別なひとときをお過ごしください。
-        </p>
-      </div>
-
-      <!-- こだわり 3: おもてなし -->
-      <div class="reveal kodawari-card bg-ink-mid rounded-none p-8 lg:p-10" style="transition-delay:.2s">
-        <div class="kodawari-icon">🌸</div>
-        <p class="sec-en mb-2 text-center">Hospitality</p>
-        <h3 class="font-serif text-lg text-cream tracking-[.2em] mb-5 text-center">おもてなし</h3>
-        <div class="gold-rule w-10 mx-auto mb-5"></div>
-        <p class="text-cream-muted text-sm leading-[2] tracking-wide text-left">
-          接待・記念日・大切なご会食に。お客様の特別なシーンを丁寧にプロデュースします。事前のご相談から当日まで、きめ細かくサポートいたします。
-        </p>
-      </div>
-
+<!-- ===== 3. 選ばれる5つの理由 ===== -->
+<section id="reasons" class="py-20 bg-primary-pale">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Why Choose Us</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        当院が選ばれる<span class="text-primary">5つの理由</span>
+      </h2>
+      <p class="text-gray-600">
+        交通事故治療に特化した当院だからこそできる、安心のサポートをご提供します。
+      </p>
     </div>
-
-    <!-- 七輪 feature -->
-    <div class="reveal mt-16 border border-gold/20 p-8 sm:p-12 flex flex-col sm:flex-row items-center gap-8" style="background:rgba(201,168,76,.03);transition-delay:.25s">
-      <img src="https://placehold.co/400x280/1a1808/c9a84c?text=能登の七輪"
-           alt="能登の切り出し七輪"
-           class="w-full sm:w-48 h-36 sm:h-36 object-cover flex-shrink-0">
-      <div class="text-left">
-        <p class="sec-en mb-2">Noto Shichirin</p>
-        <h3 class="font-serif text-xl text-gold tracking-[.2em] mb-4">能登の切り出し七輪</h3>
-        <div class="gold-rule w-10 mb-4"></div>
-        <p class="text-cream-muted text-sm leading-[2] tracking-wide">
-          石川県能登半島の珪藻土から職人が手で切り出した七輪は、遠赤外線効果が高く、炭火の熱を均一に食材へ伝えます。表面は香ばしく、内側はじっくりと旨みを閉じ込める。それが壽限無が追い求める「理想の焼き」です。
-        </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 理由1 -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm flex gap-4 items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+          1
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">💴 自己負担0円で治療できる</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            自賠責保険・任意保険を使えば、窓口での支払いは一切不要。費用の心配なく通院できます。保険手続きもスタッフがサポートします。
+          </p>
+        </div>
+      </div>
+      <!-- 理由2 -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm flex gap-4 items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+          2
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">🏥 交通事故治療の専門院</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            むちうち・外傷性頸部症候群・腰椎捻挫に特化した専門施術を提供。一般的な整骨院とは異なる、事故特有の症状への対応力があります。
+          </p>
+        </div>
+      </div>
+      <!-- 理由3 -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm flex gap-4 items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+          3
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">🤝 保険会社との交渉サポート</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            「保険会社から治療を打ち切られそう」などのお悩みも相談可能。患者様の立場に立って、適切な治療期間を確保するサポートを行います。
+          </p>
+        </div>
+      </div>
+      <!-- 理由4 -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm flex gap-4 items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+          4
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">⏰ 夜20時まで受付・完全予約制</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            お仕事帰りや夕方でも通院可能。完全予約制で待ち時間をほぼゼロに。忙しい方でも無理なく続けられます。
+          </p>
+        </div>
+      </div>
+      <!-- 理由5 -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm flex gap-4 items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+          5
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">📋 丁寧なカウンセリングと説明</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            初回は問診・検査に時間をかけ、症状の原因を丁寧に説明。「何をされているか分からない」という不安を解消します。
+          </p>
+        </div>
+      </div>
+      <!-- アクセント -->
+      <div class="bg-primary rounded-2xl p-8 flex flex-col items-center justify-center text-white text-center">
+        <p class="text-5xl font-bold mb-2">0<span class="text-2xl">円</span></p>
+        <p class="text-lg font-bold mb-3">自己負担で通院できます</p>
+        <p class="text-sm opacity-90 mb-6">自賠責保険・任意保険適用</p>
+        <a href="#contact" class="bg-white text-primary font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors">
+          今すぐ相談する
+        </a>
       </div>
     </div>
-
   </div>
 </section>
 
-<div class="gold-rule w-full opacity-20"></div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     3. おすすめコース
-══════════════════════════════════════════════════════ -->
-<section id="course" class="py-28 px-6" style="background:#1a1a1a;">
-  <div class="max-w-5xl mx-auto text-center">
-
-    <p class="sec-en mb-3">Our Courses</p>
-    <h2 class="sec-jp font-serif text-2xl sm:text-3xl text-cream mb-6">おすすめコース</h2>
-    <div class="gold-rule w-20 mx-auto mb-6"></div>
-    <p class="text-cream-muted text-sm tracking-[.2em] mb-16">すべてのコースに七輪炭火・個室利用が含まれます</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- コース A: 風来末 -->
-      <div class="reveal course-card rounded-none overflow-hidden flex flex-col">
-        <div class="relative">
-          <img src="https://placehold.co/600x360/181408/c9a84c?text=風来末コース"
-               alt="風来末コース" class="w-full h-48 object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-          <div class="absolute bottom-4 left-4">
-            <p class="font-latin italic text-gold/80 text-xs tracking-[.4em]">Furai-matsu</p>
-            <p class="font-serif text-cream text-xl tracking-[.3em]">風来末</p>
+<!-- ===== 4. 施術の流れ ===== -->
+<section id="flow" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Treatment Flow</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">施術の流れ</h2>
+      <p class="text-gray-600">初めての方も安心。丁寧にご案内します。</p>
+    </div>
+    <div class="relative">
+      <!-- 横連結線（デスクトップ） -->
+      <div class="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-primary opacity-30"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <!-- ステップ1 -->
+        <div class="flex flex-col items-center text-center relative">
+          <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 shadow-md z-10">
+            1
+          </div>
+          <div class="bg-primary-pale rounded-xl p-5 w-full">
+            <p class="text-primary font-bold text-sm mb-1">お電話・Web予約</p>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              まずはお電話またはWebフォームからご予約ください。事故日・症状を簡単にお聞きします。
+            </p>
           </div>
         </div>
-        <div class="p-7 flex-1 flex flex-col">
-          <div class="mb-6">
-            <span class="price-num text-5xl">5,900</span>
-            <span class="text-gold text-sm ml-1 tracking-wide">円</span>
+        <!-- ステップ2 -->
+        <div class="flex flex-col items-center text-center relative">
+          <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 shadow-md z-10">
+            2
           </div>
-          <ul class="text-cream-muted text-sm space-y-2 leading-relaxed mb-6 text-left flex-1">
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>大山とり</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>自家製つくね</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>和牛炙り焼き赤身</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>トマトとフレッシュチーズ</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>野菜焼</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>特選牛三種盛</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>ミニ鳥茶漬け OR ミニウーメン</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>アイス OR ソルベ</li>
-          </ul>
-          <a href="#reserve" class="btn-outline font-serif text-xs py-3 text-center tracking-[.2em] block mt-auto">
-            このコースで予約
-          </a>
+          <div class="bg-primary-pale rounded-xl p-5 w-full">
+            <p class="text-primary font-bold text-sm mb-1">初回カウンセリング</p>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              事故状況・現在の症状・既往歴などを丁寧にヒアリング。保険書類の確認もここで行います。
+            </p>
+          </div>
+        </div>
+        <!-- ステップ3 -->
+        <div class="flex flex-col items-center text-center relative">
+          <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 shadow-md z-10">
+            3
+          </div>
+          <div class="bg-primary-pale rounded-xl p-5 w-full">
+            <p class="text-primary font-bold text-sm mb-1">検査・診断</p>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              姿勢・可動域・神経テストなどで症状の原因を特定。痛みの根本を明らかにします。
+            </p>
+          </div>
+        </div>
+        <!-- ステップ4 -->
+        <div class="flex flex-col items-center text-center relative">
+          <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 shadow-md z-10">
+            4
+          </div>
+          <div class="bg-primary-pale rounded-xl p-5 w-full">
+            <p class="text-primary font-bold text-sm mb-1">施術・治療</p>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              手技療法・物理療法・テーピングなどを組み合わせ、症状に応じた最適なケアを実施します。
+            </p>
+          </div>
+        </div>
+        <!-- ステップ5 -->
+        <div class="flex flex-col items-center text-center relative">
+          <div class="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 shadow-md z-10">
+            5
+          </div>
+          <div class="bg-primary rounded-xl p-5 w-full">
+            <p class="text-white font-bold text-sm mb-1">アフターケア・再発予防</p>
+            <p class="text-xs text-white opacity-90 leading-relaxed">
+              自宅でできるセルフケアの指導・次回予約。症状が落ち着くまでしっかりサポートします。
+            </p>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="text-center mt-10">
+      <p class="text-gray-600 mb-2 text-sm">初回は約60〜90分を予定しています（2回目以降は30〜45分）</p>
+    </div>
+  </div>
+</section>
 
-      <!-- コース B: 壽限無 (FEATURED) -->
-      <div class="reveal course-card course-featured rounded-none overflow-hidden flex flex-col" style="transition-delay:.1s">
-        <div class="relative">
-          <img src="https://placehold.co/600x360/201c0a/e0c070?text=壽限無コース"
-               alt="壽限無コース" class="w-full h-48 object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-          <div class="absolute bottom-4 left-4">
-            <p class="font-latin italic text-gold text-xs tracking-[.4em]">Jugemu</p>
-            <p class="font-serif text-cream text-xl tracking-[.3em]">壽限無</p>
-          </div>
-        </div>
-        <div class="p-7 flex-1 flex flex-col">
-          <div class="mb-6">
-            <span class="price-num text-5xl">8,000</span>
-            <span class="text-gold text-sm ml-1 tracking-wide">円</span>
-          </div>
-          <ul class="text-cream-muted text-sm space-y-2 leading-relaxed mb-6 text-left flex-1">
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>大山とり</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>ホルモン5種</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>自家製つくね</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>長芋の素揚げ</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>トマトとフレッシュチーズ</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>和牛炙り焼き赤身</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>野菜焼</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>特選牛三種盛</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>和牛塊肉焼</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>ミニ鳥茶漬け OR ミニウーメン</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>アイス OR ソルベ</li>
-          </ul>
-          <a href="#reserve" class="btn-gold font-serif text-xs py-3 text-center tracking-[.2em] block mt-auto">
-            このコースで予約
-          </a>
-        </div>
-      </div>
-
-      <!-- コース C: 五劫 -->
-      <div class="reveal course-card rounded-none overflow-hidden flex flex-col" style="transition-delay:.2s">
-        <div class="relative">
-          <img src="https://placehold.co/600x360/1c1a10/c9a84c?text=五劫コース"
-               alt="五劫コース" class="w-full h-48 object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-          <div class="absolute bottom-4 left-4">
-            <p class="font-latin italic text-gold/80 text-xs tracking-[.4em]">Gokō</p>
-            <p class="font-serif text-cream text-xl tracking-[.3em]">五劫</p>
-          </div>
-        </div>
-        <div class="p-7 flex-1 flex flex-col">
-          <div class="mb-6">
-            <span class="price-num text-5xl">10,000</span>
-            <span class="text-gold text-sm ml-1 tracking-wide">円</span>
-          </div>
-          <ul class="text-cream-muted text-sm space-y-2 leading-relaxed mb-6 text-left flex-1">
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>大山とり</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>ホルモン5種</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>自家製つくね</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>長芋の素揚げ</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>トマトとフレッシュチーズ</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>和牛特上ロース・特上牛タン</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>野菜焼</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>特選牛三種盛</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>和牛ヒレ肉</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>ミニ鳥茶漬け OR ミニウーメン</li>
-            <li class="flex items-start gap-2"><span class="text-gold flex-shrink-0 mt-0.5">▸</span>アイス OR ソルベ</li>
-          </ul>
-          <a href="#reserve" class="btn-outline font-serif text-xs py-3 text-center tracking-[.2em] block mt-auto">
-            このコースで予約
-          </a>
-        </div>
-      </div>
-
+<!-- ===== 5. 料金案内 ===== -->
+<section id="price" class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Price</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">料金案内</h2>
     </div>
 
-    <div class="reveal mt-8 border border-gold/15 p-6 text-sm text-cream-muted tracking-[.12em] leading-[2.2] text-left" style="background:rgba(201,168,76,.02); transition-delay:.25s">
-      <p>・プラス¥100でトマトとフレッシュチーズは生ハムサラダかスモークサーモンサラダに変更出来ます。</p>
-      <p>・デザートは+¥300で焼モナカに変更できます。</p>
-      <p>・コースの内容はご要望に応じて柔軟に対応させて頂きます。お気軽にお声掛けください。</p>
+    <!-- 自賠責ハイライト -->
+    <div class="bg-primary rounded-2xl p-8 md:p-10 text-white text-center mb-10 shadow-lg">
+      <p class="text-xl font-bold mb-2">🚗 交通事故による治療は</p>
+      <p class="text-6xl font-bold mb-3">0<span class="text-3xl">円</span></p>
+      <p class="text-xl font-bold mb-4">自己負担なしで通院できます</p>
+      <p class="text-sm opacity-90 leading-relaxed max-w-lg mx-auto">
+        自賠責保険・任意保険が適用される場合、窓口での費用負担はございません。<br />
+        手続きが不安な方もスタッフが丁寧にサポートしますので、ご安心ください。
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+        <div class="bg-white bg-opacity-20 rounded-xl px-6 py-3 text-sm font-bold">✅ 自賠責保険 対応</div>
+        <div class="bg-white bg-opacity-20 rounded-xl px-6 py-3 text-sm font-bold">✅ 任意保険 対応</div>
+        <div class="bg-white bg-opacity-20 rounded-xl px-6 py-3 text-sm font-bold">✅ 手続きサポートあり</div>
+      </div>
     </div>
-    <p class="text-cream-dim text-xs tracking-[.2em] mt-4">
-      ※ 料金はすべて税別です ／ アレルギーをお持ちの方はご予約時にお知らせください
+
+    <!-- 通常料金テーブル -->
+    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">保険適用外の通常メニュー料金</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full bg-white rounded-2xl shadow-sm overflow-hidden">
+        <thead>
+          <tr class="bg-primary text-white text-left text-sm">
+            <th class="px-6 py-4 font-bold">メニュー</th>
+            <th class="px-6 py-4 font-bold">内容</th>
+            <th class="px-6 py-4 font-bold text-right">料金（税込）</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100 text-sm">
+          <tr class="hover:bg-primary-pale transition-colors">
+            <td class="px-6 py-4 font-medium text-gray-900">初診料</td>
+            <td class="px-6 py-4 text-gray-600">問診・検査・説明</td>
+            <td class="px-6 py-4 text-right font-bold text-primary">¥1,000</td>
+          </tr>
+          <tr class="hover:bg-primary-pale transition-colors">
+            <td class="px-6 py-4 font-medium text-gray-900">整復・手技療法</td>
+            <td class="px-6 py-4 text-gray-600">関節・筋肉へのアプローチ</td>
+            <td class="px-6 py-4 text-right font-bold text-primary">¥3,000〜</td>
+          </tr>
+          <tr class="hover:bg-primary-pale transition-colors">
+            <td class="px-6 py-4 font-medium text-gray-900">物理療法（電気・温熱）</td>
+            <td class="px-6 py-4 text-gray-600">機器を用いた施術</td>
+            <td class="px-6 py-4 text-right font-bold text-primary">¥1,500〜</td>
+          </tr>
+          <tr class="hover:bg-primary-pale transition-colors">
+            <td class="px-6 py-4 font-medium text-gray-900">テーピング</td>
+            <td class="px-6 py-4 text-gray-600">患部固定・サポート</td>
+            <td class="px-6 py-4 text-right font-bold text-primary">¥500〜</td>
+          </tr>
+          <tr class="hover:bg-primary-pale transition-colors">
+            <td class="px-6 py-4 font-medium text-gray-900">全身コンディショニング</td>
+            <td class="px-6 py-4 text-gray-600">身体のバランス調整（60分）</td>
+            <td class="px-6 py-4 text-right font-bold text-primary">¥5,500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-gray-500 mt-3 text-center">
+      ※ 料金は症状・施術内容により異なります。詳細はご来院時にご確認ください。
     </p>
   </div>
 </section>
 
-<div class="gold-rule w-full opacity-20"></div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     4. メニューハイライト
-══════════════════════════════════════════════════════ -->
-<section id="menu" class="py-28 px-6" style="background:#111111;">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="text-center mb-16">
-      <p class="sec-en mb-3">Menu Highlights</p>
-      <h2 class="sec-jp font-serif text-2xl sm:text-3xl text-cream mb-6">メニューハイライト</h2>
-      <div class="gold-rule w-20 mx-auto"></div>
+<!-- ===== 6. 患者様の声 ===== -->
+<section id="voice" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Patient Voice</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">患者様の声</h2>
+      <p class="text-gray-600">実際に通院された方からのメッセージです。</p>
     </div>
-
-    <!-- フィルタタブ -->
-    <div class="flex flex-wrap justify-center gap-2 mb-8" id="menu-filters">
-      <button onclick="menuFilter('all')"     class="menu-filter-btn active font-serif text-xs px-5 py-2 tracking-[.2em] border border-gold/50 text-gold transition-all" data-filter="all">すべて</button>
-      <button onclick="menuFilter('beef')"    class="menu-filter-btn font-serif text-xs px-5 py-2 tracking-[.2em] border border-gold/20 text-cream-muted transition-all" data-filter="beef">牛肉</button>
-      <button onclick="menuFilter('hormone')" class="menu-filter-btn font-serif text-xs px-5 py-2 tracking-[.2em] border border-gold/20 text-cream-muted transition-all" data-filter="hormone">ホルモン</button>
-      <button onclick="menuFilter('veg')"     class="menu-filter-btn font-serif text-xs px-5 py-2 tracking-[.2em] border border-gold/20 text-cream-muted transition-all" data-filter="veg">野菜・一品</button>
-      <button onclick="menuFilter('dessert')" class="menu-filter-btn font-serif text-xs px-5 py-2 tracking-[.2em] border border-gold/20 text-cream-muted transition-all" data-filter="dessert">デザート</button>
-      <button onclick="menuFilter('drink')"   class="menu-filter-btn font-serif text-xs px-5 py-2 tracking-[.2em] border border-gold/20 text-cream-muted transition-all" data-filter="drink">ドリンク</button>
-    </div>
-
-    <!-- メニューグリッド（フード＋ドリンク全セルを同一グリッド内に配置） -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3" id="menu-grid">
-
-      <!-- ── 牛肉 ── -->
-      <div class="reveal menu-cell aspect-sq" data-cat="beef">
-        <img src="https://placehold.co/500x500/1c1808/c9a84c?text=特選カルビ" alt="特選カルビ">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">特選カルビ</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Special Kalbi</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥2,200</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="beef" style="transition-delay:.08s">
-        <img src="https://placehold.co/500x500/181c08/c9a84c?text=和牛タン塩" alt="和牛タン塩">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">和牛タン塩</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Wagyu Tongue</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥1,800</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="beef" style="transition-delay:.16s">
-        <img src="https://placehold.co/500x500/1a1a10/c9a84c?text=上ロース" alt="上ロース">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">上ロース</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Premium Roast</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥2,000</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="beef" style="transition-delay:.24s">
-        <img src="https://placehold.co/500x500/20180a/c9a84c?text=特選サーロイン" alt="特選サーロイン">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">特選サーロイン</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Choice Sirloin</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥2,800</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="beef" style="transition-delay:.32s">
-        <img src="https://placehold.co/500x500/241808/c9a84c?text=和牛ヒレ" alt="和牛ヒレ">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">和牛ヒレ肉</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Wagyu Fillet</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥3,200</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="beef" style="transition-delay:.40s">
-        <img src="https://placehold.co/500x500/221610/c9a84c?text=和牛塊肉焼" alt="和牛塊肉焼">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">和牛塊肉焼</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Block Steak</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥3,800</p>
-        </div>
-      </div>
-
-      <!-- ── ホルモン ── -->
-      <div class="reveal menu-cell aspect-sq" data-cat="hormone">
-        <img src="https://placehold.co/500x500/141410/c9a84c?text=ホルモン盛り合わせ" alt="ホルモン盛り合わせ">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">ホルモン盛り合わせ</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Hormone Platter</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥1,400</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="hormone" style="transition-delay:.08s">
-        <img src="https://placehold.co/500x500/181414/c9a84c?text=自家製つくね" alt="自家製つくね">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">自家製つくね</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Homemade Tsukune</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥900</p>
-        </div>
-      </div>
-
-      <!-- ── 野菜・一品 ── -->
-      <div class="reveal menu-cell aspect-sq" data-cat="veg">
-        <img src="https://placehold.co/500x500/141c10/c9a84c?text=野菜焼" alt="野菜焼">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">野菜焼</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Grilled Vegetables</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥800</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="veg" style="transition-delay:.08s">
-        <img src="https://placehold.co/500x500/181c14/c9a84c?text=長芋の素揚げ" alt="長芋の素揚げ">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">長芋の素揚げ</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Fried Nagaimo</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥700</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="veg" style="transition-delay:.16s">
-        <img src="https://placehold.co/500x500/1c1c14/c9a84c?text=トマトとフレッシュチーズ" alt="トマトとフレッシュチーズ">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">トマトとフレッシュチーズ</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Tomato & Fresh Cheese</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥900</p>
-        </div>
-      </div>
-
-      <!-- ── デザート ── -->
-      <div class="reveal menu-cell aspect-sq" data-cat="dessert">
-        <img src="https://placehold.co/500x500/1e1c12/c9a84c?text=デザート" alt="デザート">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">デザート盛り合わせ</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Dessert Platter</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥800</p>
-        </div>
-      </div>
-
-      <!-- ── ドリンク ── -->
-      <div class="reveal menu-cell aspect-sq" data-cat="drink">
-        <img src="https://placehold.co/500x500/0c1420/c9a84c?text=樽生ビール" alt="樽生ビール">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">絶品エビス樽生</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Draft Beer</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥750〜</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="drink" style="transition-delay:.08s">
-        <img src="https://placehold.co/500x500/14100c/c9a84c?text=ウイスキー" alt="ウイスキー">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">ウイスキー・ハイボール</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Whisky</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥700〜</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="drink" style="transition-delay:.16s">
-        <img src="https://placehold.co/500x500/0e140c/c9a84c?text=スパークリングワイン" alt="スパークリングワイン">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">樽生スパークリングワイン</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Sparkling Wine</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥700〜</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="drink" style="transition-delay:.24s">
-        <img src="https://placehold.co/500x500/1a0e08/c9a84c?text=加賀梅酒" alt="加賀梅酒">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">加賀梅酒 萬歳楽</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Plum Wine</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥750</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="drink" style="transition-delay:.32s">
-        <img src="https://placehold.co/500x500/101420/c9a84c?text=プレミアムウイスキー" alt="プレミアムウイスキー">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">Salon de SHIMAJI PB</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Premium Whisky</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥4,500〜</p>
-        </div>
-      </div>
-
-      <div class="reveal menu-cell aspect-sq" data-cat="drink" style="transition-delay:.40s">
-        <img src="https://placehold.co/500x500/0c1808/c9a84c?text=ソフトドリンク" alt="ソフトドリンク">
-        <div class="menu-overlay"></div>
-        <div class="menu-label">
-          <p class="font-serif text-cream text-sm tracking-[.2em]">自家製レモネード</p>
-          <p class="text-gold/70 text-xs tracking-wide font-latin italic">Soft Drink</p>
-          <p class="text-gold text-xs mt-1 font-latin tracking-wide">¥450〜</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- すべて表示ボタン（「すべて」タブで6件以上ある時に表示） -->
-    <div id="show-all-wrap" class="text-center mt-6">
-      <button onclick="showAllItems()" id="show-all-btn"
-              class="btn-outline font-serif text-xs px-10 py-3 tracking-[.2em] inline-flex items-center gap-2">
-        すべて表示
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- ドリンク全品アコーディオン（ドリンクフィルター時のみ表示） -->
-    <div id="drink-menu-full" class="hidden mt-6 border border-gold/20" style="background:rgba(201,168,76,.02);">
-      <div class="p-7 sm:p-10">
-        <h3 class="text-center font-latin italic text-gold tracking-[.4em] text-lg mb-2">DRINK MENU</h3>
-        <div class="gold-rule w-20 mx-auto mb-8"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
-
-          <!-- ビール -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- 声1 -->
+      <div class="bg-primary-pale rounded-2xl p-7 relative">
+        <div class="text-primary text-5xl font-serif leading-none mb-4 opacity-30 absolute top-4 left-6">"</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6 pt-4">
+          追突事故に遭い、首と腰が痛くて困っていました。保険手続きも全くわからなかったのですが、スタッフの方が丁寧に教えてくれて、自己負担なしで治療を受けられました。3ヶ月で痛みがほぼなくなり、本当に助かりました。
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://placehold.co/48x48/2d8a6e/ffffff?text=田"
+               alt="" class="w-12 h-12 rounded-full object-cover" />
           <div>
-            <p class="drink-cat-title">ビール <span class="font-latin not-italic text-cream-dim text-xs ml-2">Beer</span></p>
-            <div class="drink-rule"></div>
-            <div class="drink-row"><span>絶品エビス樽生</span><span>¥750</span></div>
-            <div class="drink-row"><span>ソラチ1984 樽生</span><span>¥800</span></div>
-            <div class="drink-row"><span>アサヒスーパードライ 中ビン</span><span>¥750</span></div>
-            <div class="drink-row"><span>エビスプレミアムブラック 中ビン</span><span>¥750</span></div>
-          </div>
-
-          <!-- ノンアルコールビール -->
-          <div>
-            <p class="drink-cat-title">ノンアルコールビール</p>
-            <div class="drink-rule"></div>
-            <div class="drink-row"><span>サッポロプレミアムフリー</span><span>¥650</span></div>
-            <div class="drink-row"><span>サントリーオールフリー</span><span>¥650</span></div>
-          </div>
-
-          <!-- ウイスキー -->
-          <div>
-            <p class="drink-cat-title">ウイスキー <span class="font-latin not-italic text-cream-dim text-xs ml-2">Whisky</span></p>
-            <p class="text-cream-dim text-xs tracking-wide mb-2">ハイボール・ロック・水割り・ストレート（40ml）</p>
-            <div class="drink-rule"></div>
-            <div class="drink-row"><span>デュワーズ 12年</span><span>¥700</span></div>
-            <div class="drink-row"><span>ボウモア 12年</span><span>¥900</span></div>
-            <div class="drink-row"><span>グレンドロナック 12年</span><span>¥950</span></div>
-            <div class="drink-row"><span>マッカラン 12年</span><span>¥1,450</span></div>
-            <div class="drink-row"><span>竹鶴 NV</span><span>¥1,350</span></div>
-            <div class="drink-row"><span>竹鶴 21年</span><span>¥5,500</span></div>
-          </div>
-
-          <!-- お茶割り -->
-          <div>
-            <p class="drink-cat-title">お茶割り</p>
-            <div class="drink-rule"></div>
-            <div class="drink-row"><span>加賀ほうじ茶割り</span><span>¥650</span></div>
-            <div class="drink-row"><span>緑茶割り</span><span>¥650</span></div>
-            <div class="drink-row"><span>黒烏龍茶割り</span><span>¥700</span></div>
-          </div>
-
-          <!-- Salon de SHIMAJI PB -->
-          <div>
-            <p class="drink-cat-title">Salon de SHIMAJI PB <span class="text-cream-dim text-xs font-normal ml-1">30ml</span></p>
-            <div class="drink-rule"></div>
-            <div class="drink-row text-xs leading-relaxed"><span>GLENFARCLAS FAMILY CASKS 28年</span><span>¥11,500</span></div>
-            <div class="drink-row text-xs leading-relaxed"><span>Ichiro's Malt Virgin Oak Hogshead 9年</span><span>¥4,500</span></div>
-            <div class="drink-row text-xs leading-relaxed"><span>CAMU COGNAC 1988 FINS BOIS. Rarissimes</span><span>¥4,500</span></div>
-          </div>
-
-          <!-- レモンサワー / 梅酒 -->
-          <div>
-            <p class="drink-cat-title">レモンサワー</p>
-            <div class="drink-rule"></div>
-            <div class="drink-row"><span>スウィート</span><span>¥750</span></div>
-            <div class="drink-row"><span>ドライ</span><span>¥700</span></div>
-            <div class="mt-5">
-              <p class="drink-cat-title">梅酒 <span class="text-cream-dim text-xs font-normal ml-1">炭酸・ロック・水割り・お湯割り・ストレート</span></p>
-              <div class="drink-rule"></div>
-              <div class="drink-row"><span>加賀梅酒 萬歳楽</span><span>¥750</span></div>
-            </div>
-          </div>
-
-          <!-- 樽生スパークリングワイン -->
-          <div>
-            <p class="drink-cat-title">樽生スパークリングワイン</p>
-            <div class="drink-rule"></div>
-            <div class="drink-row"><span>ポールスター</span><span>¥700</span></div>
-            <div class="drink-row"><span>薔薇のポールスター</span><span>¥800</span></div>
-          </div>
-
-          <!-- スプリッツァー -->
-          <div>
-            <p class="drink-cat-title">スプリッツァー <span class="text-cream-dim text-xs font-normal ml-1">スパークリングワイン＋炭酸＋フレーバー</span></p>
-            <div class="drink-rule"></div>
-            <div class="drink-row"><span>りんご</span><span>¥750</span></div>
-            <div class="drink-row"><span>マスカット</span><span>¥750</span></div>
-            <div class="drink-row"><span>沖縄ミックス</span><span>¥750</span></div>
-            <div class="drink-row"><span>エルダーフラワー</span><span>¥750</span></div>
-          </div>
-
-          <!-- ソフトドリンク -->
-          <div class="md:col-span-2">
-            <p class="drink-cat-title">ソフトドリンク</p>
-            <div class="drink-rule"></div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-8">
-              <div>
-                <div class="drink-row"><span>自家製レモネード</span><span>¥700</span></div>
-                <div class="drink-row"><span>マスカットソーダ</span><span>¥600</span></div>
-                <div class="drink-row"><span>コカコーラ</span><span>¥450</span></div>
-                <div class="drink-row"><span>ジンジャーエール</span><span>¥450</span></div>
-              </div>
-              <div>
-                <div class="drink-row"><span>すりおろしリンゴジュース</span><span>¥550</span></div>
-                <div class="drink-row"><span>エルダーフラワーコーディアル</span><span>¥650</span></div>
-                <div class="drink-row"><span>加賀ほうじ茶</span><span>¥450</span></div>
-              </div>
-              <div>
-                <div class="drink-row"><span>玉露入り緑茶</span><span>¥450</span></div>
-                <div class="drink-row"><span>黒烏龍茶</span><span>¥500</span></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ドリンクメニュー展開ボタン（ドリンクフィルター時のみ表示） -->
-    <div id="drink-toggle-wrap" class="hidden text-center mt-4">
-      <button onclick="toggleDrinkMenu()" id="drink-toggle-btn"
-              class="btn-outline font-serif text-xs px-8 py-3 tracking-[.2em]">
-        ドリンクメニュー全品を見る
-        <svg id="drink-toggle-icon" class="inline-block w-3.5 h-3.5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-        </svg>
-      </button>
-    </div>
-
-    <p class="text-cream-dim text-xs tracking-[.25em] text-center mt-8">
-      ※ 仕入れ状況により変更になる場合がございます ／ 料金はすべて税別です
-    </p>
-  </div>
-</section>
-
-<div class="gold-rule w-full opacity-20"></div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     5. 個室紹介
-══════════════════════════════════════════════════════ -->
-<section id="room" class="py-28 px-6" style="background:#1a1a1a;">
-  <div class="max-w-5xl mx-auto text-center">
-
-    <p class="sec-en mb-3">Private Rooms</p>
-    <h2 class="sec-jp font-serif text-2xl sm:text-3xl text-cream mb-6">個室紹介</h2>
-    <div class="gold-rule w-20 mx-auto mb-6"></div>
-    <p class="text-cream-muted text-sm tracking-[.2em] mb-16">すべての個室に能登の切り出し七輪を設置しております</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- 2名 -->
-      <div class="reveal room-card bg-ink-mid">
-        <div class="room-img h-52">
-          <img src="https://placehold.co/600x400/181412/c9a84c?text=2名用個室"
-               alt="2名用個室" class="w-full h-full object-cover">
-        </div>
-        <div class="p-7 text-left">
-          <p class="sec-en mb-1">For 2</p>
-          <h3 class="font-serif text-xl text-cream tracking-[.2em] mb-3">2名用個室</h3>
-          <div class="gold-rule w-8 mb-4"></div>
-          <p class="text-cream-muted text-sm leading-[1.9] mb-5">
-            記念日・デートに最適なプライベート空間。テーブル席で向かい合い、特別なひとときを。バースデーサービスもご用意しています。
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">記念日</span>
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">デート</span>
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">誕生日</span>
+            <p class="font-bold text-gray-900 text-sm">田中 恵子 様（42歳・女性）</p>
+            <p class="text-xs text-gray-500">追突事故 / むちうち・腰痛</p>
+            <div class="text-yellow-400 text-sm mt-1">★★★★★</div>
           </div>
         </div>
       </div>
-
-      <!-- 4名 -->
-      <div class="reveal room-card bg-ink-mid" style="transition-delay:.1s">
-        <div class="room-img h-52">
-          <img src="https://placehold.co/600x400/1a1810/c9a84c?text=4名用個室"
-               alt="4名用個室" class="w-full h-full object-cover">
-        </div>
-        <div class="p-7 text-left">
-          <p class="sec-en mb-1">For 4</p>
-          <h3 class="font-serif text-xl text-cream tracking-[.2em] mb-3">4名用個室</h3>
-          <div class="gold-rule w-8 mb-4"></div>
-          <p class="text-cream-muted text-sm leading-[1.9] mb-5">
-            ご会食・接待・ご家族での特別なお食事に。落ち着いた和の空間で、大切なお客様をおもてなしください。
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">接待</span>
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">会食</span>
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">家族会</span>
+      <!-- 声2 -->
+      <div class="bg-primary-pale rounded-2xl p-7 relative">
+        <div class="text-primary text-5xl font-serif leading-none mb-4 opacity-30 absolute top-4 left-6">"</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6 pt-4">
+          事故後2日経ってから首が痛くなり、こちらに相談しました。「遅くても大丈夫です」と言っていただき、すぐに対応してもらえました。電気治療と手技の組み合わせで、2ヶ月ほどで日常生活に支障がなくなりました。
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://placehold.co/48x48/2d8a6e/ffffff?text=山"
+               alt="" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="font-bold text-gray-900 text-sm">山本 健太 様（35歳・男性）</p>
+            <p class="text-xs text-gray-500">出会い頭事故 / 頸椎捻挫</p>
+            <div class="text-yellow-400 text-sm mt-1">★★★★★</div>
           </div>
         </div>
       </div>
-
-      <!-- 8名 -->
-      <div class="reveal room-card bg-ink-mid" style="transition-delay:.2s">
-        <div class="room-img h-52">
-          <img src="https://placehold.co/600x400/1c1c12/c9a84c?text=8名用個室"
-               alt="8名用個室" class="w-full h-full object-cover">
-        </div>
-        <div class="p-7 text-left">
-          <p class="sec-en mb-1">For 8</p>
-          <h3 class="font-serif text-xl text-cream tracking-[.2em] mb-3">8名用個室</h3>
-          <div class="gold-rule w-8 mb-4"></div>
-          <p class="text-cream-muted text-sm leading-[1.9] mb-5">
-            少人数パーティー・合同誕生日・会社の宴席に。大きなテーブルで囲む炭火の温もりは、特別な絆を育みます。
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">パーティー</span>
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">宴会</span>
-            <span class="border border-gold/30 text-gold text-[.65rem] px-3 py-1 tracking-wide">送別会</span>
+      <!-- 声3 -->
+      <div class="bg-primary-pale rounded-2xl p-7 relative">
+        <div class="text-primary text-5xl font-serif leading-none mb-4 opacity-30 absolute top-4 left-6">"</div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6 pt-4">
+          保険会社から「そろそろ治療を終わりにしましょう」と言われて困っていました。先生が丁寧に症状の状態を説明してくださり、治療を継続できました。頭痛やめまいが改善し、今は普通の生活が送れています。
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://placehold.co/48x48/2d8a6e/ffffff?text=中"
+               alt="" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="font-bold text-gray-900 text-sm">中村 美咲 様（58歳・女性）</p>
+            <p class="text-xs text-gray-500">追突事故 / 頭痛・めまい</p>
+            <div class="text-yellow-400 text-sm mt-1">★★★★★</div>
           </div>
         </div>
       </div>
-
-    </div>
-
-    <div class="reveal mt-12 border border-gold/20 p-5 text-sm text-cream-muted tracking-[.15em]" style="transition-delay:.25s">
-      ご予約・個室のご相談は <a href="tel:046-000-0000" class="text-gold hover:underline">046-000-0000</a> またはお問合わせフォームよりお気軽にどうぞ
     </div>
   </div>
 </section>
 
-<div class="gold-rule w-full opacity-20"></div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     6. お客様の声
-══════════════════════════════════════════════════════ -->
-<section id="review" class="py-28 px-6" style="background:#141414;">
-  <div class="max-w-5xl mx-auto text-center">
-
-    <p class="sec-en mb-3">Guest Reviews</p>
-    <h2 class="sec-jp font-serif text-2xl sm:text-3xl text-cream mb-6">お客様の声</h2>
-    <div class="gold-rule w-20 mx-auto mb-16"></div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- Review 1 -->
-      <div class="reveal review-card bg-ink-mid p-7 text-left flex flex-col">
-        <div class="quote-open">"</div>
-        <p class="text-cream-muted text-sm leading-[2] flex-1 -mt-2 mb-6">
-          接待で初めて伺いましたが、大切なお客様に大変喜んでいただけました。個室の雰囲気、炭火で焼くお肉の質、スタッフの方の気配り、すべてが一流でした。次回は家族の記念日に利用したいと思います。
-        </p>
-        <div class="flex items-center gap-1 mb-4">
-          <span class="text-gold text-sm">★★★★★</span>
+<!-- ===== 7. 院長挨拶 ===== -->
+<section id="director" class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Director</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">院長挨拶</h2>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-80 flex-shrink-0">
+          <img src="https://placehold.co/320x400/e8f5f1/2d8a6e?text=院長+さくら太郎"
+               alt="院長 さくら太郎"
+               class="w-full h-full object-cover" style="min-height:280px;" />
         </div>
-        <div class="border-t border-gold/15 pt-4 flex items-center gap-3">
-          <img src="https://placehold.co/40x40/222210/c9a84c?text=T"
-               alt="T様" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
-          <div>
-            <p class="font-serif text-cream text-sm tracking-wider">T 様</p>
-            <p class="text-cream-dim text-xs tracking-wide">40代 / 会社経営</p>
+        <div class="flex-1 p-8 md:p-10">
+          <p class="text-primary font-bold text-sm mb-1">さくら整骨院 院長</p>
+          <h3 class="text-2xl font-bold text-gray-900 mb-1">さくら 太郎（Taro Sakura）</h3>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-primary-pale text-primary text-xs px-3 py-1 rounded-full font-medium">柔道整復師</span>
+            <span class="bg-primary-pale text-primary text-xs px-3 py-1 rounded-full font-medium">鍼灸師</span>
+            <span class="bg-primary-pale text-primary text-xs px-3 py-1 rounded-full font-medium">交通事故治療認定</span>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-6">
+            交通事故に遭われた患者様が「どこに相談すればいいか分からない」と不安を抱えて来院されることが多くあります。私自身も若い頃に交通事故を経験し、その後の痛みや手続きの大変さを身をもって知っています。<br /><br />
+            だからこそ、治療だけでなく、患者様が安心して回復に専念できる環境を整えることを大切にしています。保険手続きのサポートから、症状に合わせた個別の施術プランまで、一人ひとりに真摯に向き合います。<br /><br />
+            「ここに来て良かった」と思っていただけるよう、スタッフ一同全力でサポートいたします。
+          </p>
+          <div class="border-t border-gray-100 pt-5">
+            <p class="text-xs font-bold text-gray-700 mb-2">経歴・資格</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li>・〇〇医療専門学校 柔道整復学科 卒業</li>
+              <li>・大阪市内の整形外科・整骨院にて10年勤務</li>
+              <li>・2011年 さくら整骨院 開業</li>
+              <li>・交通事故治療セミナー修了（認定番号：XXXX-XXXX）</li>
+              <li>・日本柔道整復師会 会員</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Review 2 -->
-      <div class="reveal review-card bg-ink-mid p-7 text-left flex flex-col" style="transition-delay:.1s">
-        <div class="quote-open">"</div>
-        <p class="text-cream-muted text-sm leading-[2] flex-1 -mt-2 mb-6">
-          結婚記念日に夫と2人で伺いました。バースデーサービスと演出がとても素敵で感動しました。お肉はもちろん絶品で、七輪で焼く時間もとても楽しく、会話も弾みました。毎年来ようと決めています。
-        </p>
-        <div class="flex items-center gap-1 mb-4">
-          <span class="text-gold text-sm">★★★★★</span>
-        </div>
-        <div class="border-t border-gold/15 pt-4 flex items-center gap-3">
-          <img src="https://placehold.co/40x40/1e1e12/c9a84c?text=M"
-               alt="M様" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
-          <div>
-            <p class="font-serif text-cream text-sm tracking-wider">M 様</p>
-            <p class="text-cream-dim text-xs tracking-wide">30代 / 会社員</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 3 -->
-      <div class="reveal review-card bg-ink-mid p-7 text-left flex flex-col" style="transition-delay:.2s">
-        <div class="quote-open">"</div>
-        <p class="text-cream-muted text-sm leading-[2] flex-1 -mt-2 mb-6">
-          壽限無コースを4名でいただきました。特選サーロインの旨みは別格。能登の七輪で焼いたお肉は香ばしさが違います。個室でゆっくり話しながら食べられるのも良く、また絶対に来ます。厚木にこんな名店があるとは。
-        </p>
-        <div class="flex items-center gap-1 mb-4">
-          <span class="text-gold text-sm">★★★★★</span>
-        </div>
-        <div class="border-t border-gold/15 pt-4 flex items-center gap-3">
-          <img src="https://placehold.co/40x40/201810/c9a84c?text=K"
-               alt="K様" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
-          <div>
-            <p class="font-serif text-cream text-sm tracking-wider">K 様</p>
-            <p class="text-cream-dim text-xs tracking-wide">50代 / 会社役員</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<div class="gold-rule w-full opacity-20"></div>
+<!-- ===== 8. よくある質問 ===== -->
+<section id="faq" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">FAQ</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">よくある質問</h2>
+      <p class="text-gray-600">交通事故治療に関するご不明点をまとめました。</p>
+    </div>
+    <div class="space-y-4">
+      <!-- Q1 -->
+      <details class="group border border-gray-200 rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 hover:bg-primary-pale transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">Q</span>
+            <p class="font-bold text-gray-900">事故から時間が経っていても受診できますか？</p>
+          </div>
+          <span class="text-primary text-xl font-light group-open:rotate-45 transition-transform duration-200 flex-shrink-0 ml-4">＋</span>
+        </summary>
+        <div class="px-6 pb-5 pt-2 flex gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-pale text-primary rounded-full flex items-center justify-center text-sm font-bold">A</span>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            はい、受診いただけます。ただし、事故から時間が経つと自賠責保険の適用範囲が変わる場合があります。また、早期治療のほうが回復が早い傾向があります。「事故からもう2週間経ってしまった…」という方も、まずはご相談ください。
+          </p>
+        </div>
+      </details>
+      <!-- Q2 -->
+      <details class="group border border-gray-200 rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 hover:bg-primary-pale transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">Q</span>
+            <p class="font-bold text-gray-900">病院（整形外科）と整骨院、どちらに行けばいいですか？</p>
+          </div>
+          <span class="text-primary text-xl font-light group-open:rotate-45 transition-transform duration-200 flex-shrink-0 ml-4">＋</span>
+        </summary>
+        <div class="px-6 pb-5 pt-2 flex gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-pale text-primary rounded-full flex items-center justify-center text-sm font-bold">A</span>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            まず整形外科で診断（画像検査・診断書取得）を受けることをお勧めします。その後、整骨院での手技療法・物理療法が非常に効果的です。当院では並行通院も歓迎しており、必要に応じて医療機関との連携も行います。
+          </p>
+        </div>
+      </details>
+      <!-- Q3 -->
+      <details class="group border border-gray-200 rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 hover:bg-primary-pale transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">Q</span>
+            <p class="font-bold text-gray-900">自分が加入していない相手方の保険でも使えますか？</p>
+          </div>
+          <span class="text-primary text-xl font-light group-open:rotate-45 transition-transform duration-200 flex-shrink-0 ml-4">＋</span>
+        </summary>
+        <div class="px-6 pb-5 pt-2 flex gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-pale text-primary rounded-full flex items-center justify-center text-sm font-bold">A</span>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            はい、使えます。交通事故で被害者となった場合、加害者が加入している自賠責保険・任意保険を使って治療費を賄うことができます。手続き方法についても、初回来院時に丁寧にご説明します。
+          </p>
+        </div>
+      </details>
+      <!-- Q4 -->
+      <details class="group border border-gray-200 rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 hover:bg-primary-pale transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">Q</span>
+            <p class="font-bold text-gray-900">何回くらい通えば良くなりますか？</p>
+          </div>
+          <span class="text-primary text-xl font-light group-open:rotate-45 transition-transform duration-200 flex-shrink-0 ml-4">＋</span>
+        </summary>
+        <div class="px-6 pb-5 pt-2 flex gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-pale text-primary rounded-full flex items-center justify-center text-sm font-bold">A</span>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            症状の程度・事故の状況・年齢などにより異なりますが、軽度のむちうちであれば1〜2ヶ月、中程度であれば3〜6ヶ月が目安です。週2〜3回を推奨していますが、お仕事の都合などを考慮して通院ペースを調整することもできます。
+          </p>
+        </div>
+      </details>
+      <!-- Q5 -->
+      <details class="group border border-gray-200 rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between cursor-pointer px-6 py-5 hover:bg-primary-pale transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">Q</span>
+            <p class="font-bold text-gray-900">保険会社に「そろそろ終わりにしてください」と言われました。どうすればいいですか？</p>
+          </div>
+          <span class="text-primary text-xl font-light group-open:rotate-45 transition-transform duration-200 flex-shrink-0 ml-4">＋</span>
+        </summary>
+        <div class="px-6 pb-5 pt-2 flex gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-pale text-primary rounded-full flex items-center justify-center text-sm font-bold">A</span>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            症状が残っているうちは治療を続ける権利があります。当院では症状の状態を正確に記録・証明するサポートを行います。また、必要に応じて弁護士・行政書士とも連携しますので、一人で悩まずにご相談ください。
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     7. アクセス・営業時間
-══════════════════════════════════════════════════════ -->
-<section id="access" class="py-28 px-6" style="background:#1a1a1a;">
-  <div class="max-w-5xl mx-auto text-center">
-
-    <p class="sec-en mb-3">Access & Hours</p>
-    <h2 class="sec-jp font-serif text-2xl sm:text-3xl text-cream mb-6">アクセス・営業時間</h2>
-    <div class="gold-rule w-20 mx-auto mb-16"></div>
-
-    <div class="flex flex-col lg:flex-row gap-8">
-
-      <!-- Map -->
-      <div class="reveal w-full lg:w-3/5" style="transition-delay:.05s">
-        <div class="border border-gold/20 overflow-hidden h-full min-h-[360px]">
-          <!-- ▼ Google マップ埋め込み
-               Googleマップで店舗を検索 → 「共有」→「地図を埋め込む」→ iframeのsrc属性値をここに貼り付けてください -->
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d684.0401905367206!2d139.34516990491483!3d35.41989993577818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019ab6ae8c1437b%3A0xf1813f2f41dc42f3!2z5aO96ZmQ54ShanVnZW0!5e1!3m2!1sja!2sjp!4v1780315393899!5m2!1sja!2sjp"
-            width="100%" height="100%"
-            style="min-height:360px; border:0; filter:invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1) saturate(0.7);"
-            allowfullscreen loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="炭火 壽限無 地図">
-          </iframe>
+<!-- ===== 9. アクセス・診療時間 ===== -->
+<section id="access" class="py-20 bg-primary-pale">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Access</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">アクセス・診療時間</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- 地図エリア -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+        <img src="https://placehold.co/600x380/e8f5f1/2d8a6e?text=地図エリア（Google+Maps+埋め込み）"
+             alt="地図" class="w-full object-cover" />
+        <div class="p-6">
+          <p class="font-bold text-gray-900 mb-1">🌸 さくら整骨院</p>
+          <p class="text-sm text-gray-600">〒530-0000 大阪府大阪市北区〇〇町1-2-3 〇〇ビル1F</p>
+          <p class="text-sm text-gray-600 mt-1">🚃 地下鉄〇〇線「〇〇駅」より徒歩3分</p>
+          <p class="text-sm text-gray-600">🚗 近隣にコインパーキングあり</p>
         </div>
       </div>
-
-      <!-- Info -->
-      <div class="reveal w-full lg:w-2/5 flex flex-col gap-5 text-left" style="transition-delay:.1s">
-
-        <!-- Address + Access -->
-        <div class="border border-gold/20 p-6 bg-ink-mid">
-          <p class="sec-en mb-3">Location</p>
-          <ul class="space-y-4 text-sm">
-            <li class="flex gap-3">
-              <span class="text-gold text-base flex-shrink-0 mt-0.5">📍</span>
-              <div>
-                <p class="text-cream-dim text-xs tracking-wide mb-0.5">住所</p>
-                <p class="text-cream-muted leading-relaxed">〒243-0032<br>神奈川県厚木市愛甲X-X-X</p>
-              </div>
-            </li>
-            <li class="flex gap-3 border-t border-gold/10 pt-4">
-              <span class="text-gold text-base flex-shrink-0 mt-0.5">🚃</span>
-              <div>
-                <p class="text-cream-dim text-xs tracking-wide mb-0.5">最寄り駅</p>
-                <p class="text-cream-muted leading-relaxed">小田急線「愛甲石田駅」より徒歩X分</p>
-              </div>
-            </li>
-            <li class="flex gap-3 border-t border-gold/10 pt-4">
-              <span class="text-gold text-base flex-shrink-0 mt-0.5">🅿️</span>
-              <div>
-                <p class="text-cream-dim text-xs tracking-wide mb-0.5">駐車場</p>
-                <p class="text-cream-muted leading-relaxed">専用駐車場完備（無料・10台）</p>
-              </div>
-            </li>
-            <li class="flex gap-3 border-t border-gold/10 pt-4">
-              <span class="text-gold text-base flex-shrink-0 mt-0.5">📞</span>
-              <div>
-                <p class="text-cream-dim text-xs tracking-wide mb-0.5">電話</p>
-                <a href="tel:046-000-0000" class="text-gold font-latin text-lg tracking-wide hover:underline">046-000-0000</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Hours -->
-        <div class="border border-gold/20 p-6 bg-ink-mid">
-          <p class="sec-en mb-4">Business Hours</p>
+      <!-- 診療時間・院情報 -->
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <h3 class="font-bold text-gray-900 mb-4 text-lg">📅 診療時間</h3>
           <table class="w-full text-sm">
-            <tbody>
-              <tr class="hours-tr">
-                <td class="py-2.5 text-cream-muted tracking-wide w-28">月〜木</td>
-                <td class="py-2.5 text-cream">17:00 〜 23:30</td>
-                <td class="py-2.5 text-cream-dim text-xs text-right">LO 22:30</td>
+            <thead>
+              <tr class="border-b border-gray-100">
+                <th class="py-2 text-left text-gray-600 font-medium w-24">曜日</th>
+                <th class="py-2 text-center text-gray-600 font-medium">午前</th>
+                <th class="py-2 text-center text-gray-600 font-medium">午後</th>
               </tr>
-              <tr class="hours-tr">
-                <td class="py-2.5 text-cream-muted tracking-wide">金・土・祝前</td>
-                <td class="py-2.5 text-cream">17:00 〜 24:00</td>
-                <td class="py-2.5 text-cream-dim text-xs text-right">LO 23:00</td>
-              </tr>
-              <tr class="hours-tr">
-                <td class="py-2.5 text-cream-muted tracking-wide">日・祝</td>
-                <td class="py-2.5 text-cream">16:00 〜 23:00</td>
-                <td class="py-2.5 text-cream-dim text-xs text-right">LO 22:00</td>
+            </thead>
+            <tbody class="divide-y divide-gray-50">
+              <tr>
+                <td class="py-3 font-medium text-gray-900">月・火・水</td>
+                <td class="py-3 text-center text-primary font-bold">9:00〜13:00</td>
+                <td class="py-3 text-center text-primary font-bold">15:00〜20:00</td>
               </tr>
               <tr>
-                <td class="py-2.5 text-red-400 tracking-wide">定休日</td>
-                <td class="py-2.5 text-red-400/80" colspan="2">毎週月曜日（祝日の場合は翌火曜）</td>
+                <td class="py-3 font-medium text-gray-900">木</td>
+                <td class="py-3 text-center text-primary font-bold">9:00〜13:00</td>
+                <td class="py-3 text-center text-gray-400">休診</td>
+              </tr>
+              <tr>
+                <td class="py-3 font-medium text-gray-900">金・土</td>
+                <td class="py-3 text-center text-primary font-bold">9:00〜13:00</td>
+                <td class="py-3 text-center text-primary font-bold">15:00〜20:00</td>
+              </tr>
+              <tr>
+                <td class="py-3 font-medium text-gray-900">日・祝</td>
+                <td colspan="2" class="py-3 text-center text-gray-400">休診</td>
               </tr>
             </tbody>
           </table>
-          <p class="text-cream-dim text-xs tracking-wide mt-4">※ 貸切・特別営業はお問合わせください</p>
+          <p class="text-xs text-gray-500 mt-3">※ 交通事故の緊急相談は営業時間外でも電話にて対応可能な場合があります。</p>
         </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="gold-rule w-full opacity-30"></div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     8. ご予約
-══════════════════════════════════════════════════════ -->
-<section id="reserve" class="cta-bg py-24 px-6 relative overflow-hidden">
-  <div class="absolute -top-32 -right-32 w-80 h-80 rounded-full border border-gold/6 pointer-events-none"></div>
-  <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full border border-gold/5 pointer-events-none"></div>
-
-  <div class="relative z-10 max-w-3xl mx-auto">
-
-    <!-- Section header -->
-    <div class="text-center mb-10">
-      <div class="flex items-center justify-center gap-4 mb-6">
-        <div class="gold-rule w-16"></div>
-        <p class="font-latin italic text-gold/70 text-xs tracking-[.5em]">Reservation</p>
-        <div class="gold-rule w-16"></div>
-      </div>
-      <p class="font-serif text-cream-muted text-sm tracking-[.4em] mb-3">ご予約はこちら</p>
-      <h2 class="font-serif text-3xl sm:text-4xl text-cream tracking-[.1em] leading-relaxed mb-5">
-        特別な夜のご予約は<br>お気軽にどうぞ
-      </h2>
-      <div class="gold-rule w-20 mx-auto mb-5"></div>
-      <p class="text-gold/80 text-sm tracking-[.2em]">24時間いつでもオンライン予約できます</p>
-    </div>
-
-    <!-- 電話・LINE クイックボタン -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-      <a href="tel:046-000-0000"
-         class="btn-gold font-serif text-sm py-4 px-8 inline-flex items-center justify-center gap-3">
-        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.47 11.47 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.6 1 1 0 01-.25 1.02z"/>
-        </svg>
-        <div class="text-left">
-          <p class="text-[.6rem] text-ink/60 font-normal tracking-wide">お電話でのご予約</p>
-          <p class="font-latin text-lg tracking-wider">046-000-0000</p>
-        </div>
-      </a>
-      <!-- LINE → フォームへスクロール -->
-      <a href="#form-section"
-         class="btn-outline font-serif text-sm py-4 px-8 inline-flex items-center justify-center gap-3">
-        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 48 48" fill="currentColor">
-          <path d="M24 4C12.95 4 4 12.28 4 22.5c0 5.7 2.81 10.79 7.22 14.2-.32.98-.85 2.58-1.44 4.28-.18.52.31 1 .8.84l4.04-1.19a19.8 19.8 0 0 0 9.38 2.37C35.05 43 44 34.72 44 22.5 44 12.28 35.05 4 24 4zm-7 14h2a1 1 0 0 1 0 2H17v4h2a1 1 0 0 1 0 2h-3a1 1 0 0 1-1-1V19a1 1 0 0 1 1-1zm14 0a1 1 0 0 1 1 1v8a1 1 0 0 1-2 0v-5l-3 3.71A1 1 0 0 1 25 25v-6a1 1 0 0 1 2 0v4.27L30 20a1 1 0 0 1 1-2zm-6 0a1 1 0 0 1 1 1v8a1 1 0 0 1-2 0v-8a1 1 0 0 1 1-1zm-3 0a1 1 0 0 1 1 1v8a1 1 0 0 1-2 0v-8a1 1 0 0 1 1-1z"/>
-        </svg>
-        <div class="text-left">
-          <p class="text-[.6rem] text-gold/50 font-normal tracking-wide">LINEでのご予約</p>
-          <p class="tracking-wide">フォームで予約リクエスト</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Divider -->
-    <div id="form-section" class="flex items-center gap-4 mb-10">
-      <div class="gold-rule flex-1 opacity-30"></div>
-      <p class="text-cream-dim text-xs tracking-[.4em] flex-shrink-0">またはフォームからご予約</p>
-      <div class="gold-rule flex-1 opacity-30"></div>
-    </div>
-
-    <!-- ── Formspree 予約フォーム ── -->
-    <div class="border border-gold/20 p-8 sm:p-10" style="background:rgba(201,168,76,.02);">
-
-      <!-- 送信完了メッセージ（初期非表示） -->
-      <div id="form-success" class="hidden text-center py-12">
-        <div class="text-gold text-5xl mb-6">✓</div>
-        <h3 class="font-serif text-2xl text-cream tracking-[.15em] mb-4">ご予約を受け付けました</h3>
-        <div class="gold-rule w-16 mx-auto mb-6"></div>
-        <p class="text-cream-muted text-sm leading-[2] tracking-wide">
-          ご入力いただいたメールアドレスへ確認メールをお送りします。<br>
-          2営業日以内にスタッフよりご連絡いたします。<br>
-          お急ぎの場合はお電話 <a href="tel:046-000-0000" class="text-gold hover:underline">046-000-0000</a> へ。
-        </p>
-      </div>
-
-      <form id="reserve-form"
-            action="https://formspree.io/f/あなたのFormspree-ID"
-            method="POST"
-            novalidate>
-
-        <!-- 経路を識別するための隠しフィールド（LINE/Web共通） -->
-        <input type="hidden" name="_subject" value="【壽限無】予約リクエスト">
-        <input type="hidden" name="source" id="f-source" value="web">
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-
-          <!-- お名前 -->
-          <div class="form-group">
-            <label class="form-label" for="f-name">お名前 <span class="text-gold">*</span></label>
-            <input id="f-name" name="name" type="text" placeholder="山田 太郎"
-                   class="form-input" autocomplete="name">
-            <p class="form-error" id="err-name"></p>
-          </div>
-
-          <!-- 電話番号 -->
-          <div class="form-group">
-            <label class="form-label" for="f-tel">電話番号 <span class="text-gold">*</span></label>
-            <input id="f-tel" name="tel" type="tel" placeholder="090-0000-0000"
-                   class="form-input" autocomplete="tel">
-            <p class="form-error" id="err-tel"></p>
-          </div>
-
-          <!-- メールアドレス -->
-          <div class="form-group sm:col-span-2">
-            <label class="form-label" for="f-email">メールアドレス <span class="text-gold">*</span></label>
-            <input id="f-email" name="email" type="email" placeholder="example@mail.com"
-                   class="form-input" autocomplete="email">
-            <p class="form-error" id="err-email"></p>
-          </div>
-
-          <!-- ご利用日 -->
-          <div class="form-group">
-            <label class="form-label" for="f-date">ご利用日 <span class="text-gold">*</span></label>
-            <input id="f-date" name="date" type="date" class="form-input">
-            <p class="form-error" id="err-date"></p>
-          </div>
-
-          <!-- ご利用時間 -->
-          <div class="form-group">
-            <label class="form-label" for="f-time">ご利用時間 <span class="text-gold">*</span></label>
-            <select id="f-time" name="time" class="form-input form-select">
-              <option value="">ご選択ください</option>
-              <option>17:00</option><option>17:30</option>
-              <option>18:00</option><option>18:30</option>
-              <option>19:00</option><option>19:30</option>
-              <option>20:00</option><option>20:30</option>
-              <option>21:00</option><option>21:30</option>
-              <option>22:00</option>
-            </select>
-            <p class="form-error" id="err-time"></p>
-          </div>
-
-          <!-- ご利用人数 -->
-          <div class="form-group">
-            <label class="form-label" for="f-guests">ご利用人数 <span class="text-gold">*</span></label>
-            <select id="f-guests" name="guests" class="form-input form-select">
-              <option value="">ご選択ください</option>
-              <option>1名</option><option>2名</option><option>3名</option><option>4名</option>
-              <option>5名</option><option>6名</option><option>7名</option><option>8名</option>
-              <option>9名</option><option>10名</option><option>11名</option><option>12名</option>
-              <option>13名</option><option>14名</option><option>15名</option>
-              <option>16〜20名（要相談）</option>
-            </select>
-            <p class="form-error" id="err-guests"></p>
-          </div>
-
-          <!-- ご利用目的 -->
-          <div class="form-group">
-            <label class="form-label" for="f-purpose">ご利用目的 <span class="text-gold">*</span></label>
-            <select id="f-purpose" name="purpose" class="form-input form-select">
-              <option value="">ご選択ください</option>
-              <option>接待</option><option>記念日</option><option>家族</option><option>その他</option>
-            </select>
-            <p class="form-error" id="err-purpose"></p>
-          </div>
-
-          <!-- 個室希望 -->
-          <div class="form-group sm:col-span-2">
-            <p class="form-label mb-3">個室希望</p>
-            <div class="flex flex-wrap gap-3">
-              <label class="radio-label">
-                <input type="radio" name="private_room" value="希望する" class="radio-input">
-                <span class="radio-box">あり</span>
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="private_room" value="希望しない" class="radio-input">
-                <span class="radio-box">なし</span>
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="private_room" value="どちらでも" class="radio-input" checked>
-                <span class="radio-box">どちらでも</span>
-              </label>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <h3 class="font-bold text-gray-900 mb-4 text-lg">📞 お問い合わせ</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-primary-pale rounded-full flex items-center justify-center text-sm">📱</div>
+              <div>
+                <p class="text-xs text-gray-500">お電話</p>
+                <p class="font-bold text-lg text-primary">06-0000-0000</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-primary-pale rounded-full flex items-center justify-center text-sm">✉️</div>
+              <div>
+                <p class="text-xs text-gray-500">メール</p>
+                <p class="font-bold text-gray-800">info@sakura-seikotsu.jp</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-primary-pale rounded-full flex items-center justify-center text-sm">🅿️</div>
+              <div>
+                <p class="text-xs text-gray-500">駐車場</p>
+                <p class="font-medium text-gray-800">近隣コインパーキング利用（30分まで当院負担）</p>
+              </div>
             </div>
           </div>
-
-          <!-- アレルギー -->
-          <div class="form-group sm:col-span-2">
-            <label class="form-label" for="f-allergy">アレルギー・苦手な食材（任意）</label>
-            <textarea id="f-allergy" name="allergy" rows="3"
-                      placeholder="例：えび、かに、小麦など"
-                      class="form-input resize-none"></textarea>
-          </div>
-
         </div>
-
-        <p class="text-cream-dim text-xs tracking-[.15em] mb-6">
-          ※ ご予約確定後、担当スタッフより2営業日以内にご連絡いたします。<br>
-          ※ 月曜定休（祝日の場合は翌火曜）
-        </p>
-
-        <button type="submit" id="form-submit-btn"
-                class="btn-gold w-full font-serif text-sm py-5 tracking-[.3em] flex items-center justify-center gap-3">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          予約リクエストを送信する
-        </button>
-
-      </form>
+      </div>
     </div>
-
-    <p class="text-cream-dim text-xs tracking-[.25em] text-center mt-6">
-      電話受付時間 / 13:00〜23:00（定休日を除く）
-    </p>
-
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════════════ -->
-<footer style="background:#0a0a0a; border-top:1px solid rgba(201,168,76,.15);">
-  <div class="max-w-6xl mx-auto px-6 py-14">
-    <div class="flex flex-col sm:flex-row gap-10 justify-between items-start">
-
-      <div>
-        <p class="font-latin italic text-gold text-lg tracking-[.4em] mb-1">jugemu</p>
-        <p class="font-serif text-cream text-xl tracking-[.3em] mb-4">炭火 壽限無</p>
-        <p class="text-cream-dim text-xs leading-[2] tracking-wide">
-          〒243-0032<br>
-          神奈川県厚木市愛甲X-X-X<br>
-          <a href="tel:046-000-0000" class="hover:text-gold transition-colors">TEL: 046-000-0000</a>
-        </p>
+<!-- ===== 10. 予約CTA ===== -->
+<section id="contact" class="py-20 bg-primary">
+  <div class="max-w-4xl mx-auto px-4 text-center text-white">
+    <p class="text-sm font-bold tracking-widest uppercase opacity-80 mb-3">Contact &amp; Reservation</p>
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      まずは無料でご相談ください
+    </h2>
+    <p class="text-lg opacity-90 mb-2">
+      交通事故後の不安・痛み・手続きの悩みを一人で抱え込まないでください。
+    </p>
+    <p class="text-base opacity-80 mb-10">
+      初回相談は完全無料。当日のご予約も受け付けています。
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <!-- 電話ボタン -->
+      <a href="tel:06-0000-0000"
+         class="bg-white text-primary font-bold text-xl px-10 py-5 rounded-full shadow-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-3">
+        <span class="text-2xl">📞</span>
+        <div class="text-left">
+          <p class="text-xs font-medium text-gray-500">電話で予約する</p>
+          <p class="text-xl font-bold text-primary">06-0000-0000</p>
+        </div>
+      </a>
+      <!-- Web予約ボタン -->
+      <a href="#"
+         class="bg-primary-dark text-white font-bold text-xl px-10 py-5 rounded-full shadow-lg hover:bg-primary-dark border-2 border-white border-opacity-50 hover:bg-opacity-80 transition-colors flex items-center justify-center gap-3">
+        <span class="text-2xl">🌐</span>
+        <div class="text-left">
+          <p class="text-xs font-medium opacity-80">Webで予約する</p>
+          <p class="text-xl font-bold">24時間受付</p>
+        </div>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto text-sm">
+      <div class="bg-white bg-opacity-10 rounded-xl px-4 py-3">
+        <p class="font-bold">💴 費用</p>
+        <p class="opacity-80 text-xs mt-1">相談・初診料 無料</p>
       </div>
-
-      <div class="text-sm text-cream-dim">
-        <p class="text-cream-muted text-xs tracking-widest mb-4">HOURS</p>
-        <p class="leading-[2] tracking-wide">
-          月〜木 17:00〜23:30<br>
-          金土祝前 17:00〜24:00<br>
-          日・祝 16:00〜23:00<br>
-          <span class="text-red-400/70">定休日：毎週月曜</span>
-        </p>
+      <div class="bg-white bg-opacity-10 rounded-xl px-4 py-3">
+        <p class="font-bold">⏰ 受付時間</p>
+        <p class="opacity-80 text-xs mt-1">月〜土 9:00〜20:00</p>
       </div>
-
-      <div class="text-sm text-cream-dim">
-        <p class="text-cream-muted text-xs tracking-widest mb-4">NAVIGATION</p>
-        <ul class="space-y-2 tracking-[.15em]">
-          <li><a href="#kodawari" class="hover:text-gold transition-colors">こだわり</a></li>
-          <li><a href="#course"   class="hover:text-gold transition-colors">コース</a></li>
-          <li><a href="#menu"     class="hover:text-gold transition-colors">メニュー</a></li>
-          <li><a href="#room"     class="hover:text-gold transition-colors">個室</a></li>
-          <li><a href="#access"   class="hover:text-gold transition-colors">アクセス</a></li>
-          <li><a href="#reserve"  class="hover:text-gold transition-colors">ご予約</a></li>
-        </ul>
+      <div class="bg-white bg-opacity-10 rounded-xl px-4 py-3">
+        <p class="font-bold">🚀 当日対応</p>
+        <p class="opacity-80 text-xs mt-1">急ぎの方も歓迎</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="gold-rule w-full mt-10 mb-6 opacity-20"></div>
-    <p class="text-cream-dim text-[.65rem] tracking-[.3em] text-center">
-      © 2024 炭火 壽限無（jugemu）All rights reserved.
-    </p>
+<!-- ===== フッター ===== -->
+<footer class="bg-gray-900 text-gray-400 py-10">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row gap-8 mb-8">
+      <div class="flex-1">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-2xl">🌸</span>
+          <div>
+            <p class="text-lg font-bold text-white leading-tight">さくら整骨院</p>
+            <p class="text-xs text-gray-500">交通事故・むちうち専門</p>
+          </div>
+        </div>
+        <p class="text-xs leading-relaxed">
+          大阪市北区で15年。交通事故治療に特化した専門整骨院として、
+          自賠責保険対応から保険手続きサポートまで、患者様に寄り添った治療を提供します。
+        </p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm">
+        <div>
+          <p class="text-white font-bold mb-2">メニュー</p>
+          <ul class="space-y-1 text-xs">
+            <li><a href="#symptoms" class="hover:text-primary transition-colors">こんな症状の方へ</a></li>
+            <li><a href="#reasons"  class="hover:text-primary transition-colors">選ばれる理由</a></li>
+            <li><a href="#flow"     class="hover:text-primary transition-colors">施術の流れ</a></li>
+            <li><a href="#price"    class="hover:text-primary transition-colors">料金案内</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-white font-bold mb-2">情報</p>
+          <ul class="space-y-1 text-xs">
+            <li><a href="#voice"    class="hover:text-primary transition-colors">患者様の声</a></li>
+            <li><a href="#director" class="hover:text-primary transition-colors">院長挨拶</a></li>
+            <li><a href="#faq"      class="hover:text-primary transition-colors">よくある質問</a></li>
+            <li><a href="#access"   class="hover:text-primary transition-colors">アクセス</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-white font-bold mb-2">連絡先</p>
+          <ul class="space-y-1 text-xs">
+            <li>📞 06-0000-0000</li>
+            <li>✉️ info@sakura-seikotsu.jp</li>
+            <li>〒530-0000</li>
+            <li>大阪市北区〇〇町1-2-3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs">
+      <p>© 2024 さくら整骨院 All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-primary transition-colors">プライバシーポリシー</a>
+        <a href="#" class="hover:text-primary transition-colors">免責事項</a>
+      </div>
+    </div>
   </div>
 </footer>
 
-
-<!-- ══════════════════════════════════════════════════════
-     MOBILE FLOATING CTA
-══════════════════════════════════════════════════════ -->
-<div class="float-cta fixed bottom-0 inset-x-0 z-50 lg:hidden flex"
-     style="background:#0d0d0d; border-top:1px solid rgba(201,168,76,.2);">
-  <a href="tel:046-000-0000"
-     class="flex-1 btn-gold font-serif text-xs py-4 flex items-center justify-center gap-2 tracking-[.2em]">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.47 11.47 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.6 1 1 0 01-.25 1.02z"/>
-    </svg>
-    お電話
-  </a>
-  <div style="width:1px; background:rgba(201,168,76,.2);"></div>
-  <a href="#reserve" class="float-btn-net font-serif">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-    </svg>
-    ネット予約
-  </a>
-</div>
-<div class="h-16 lg:hidden"></div>
-
-<!-- Page-top button -->
-<button id="page-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ページトップへ">
-  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
-  </svg>
-</button>
-
-
-<!-- ══════════════════════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════════════════════ -->
+<!-- スムーズスクロール補助スクリプト -->
 <script>
-  // ── Scroll reveal ─────────────────────────────────────────────────
-  const ro = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
-    }),
-    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-  );
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => ro.observe(el));
-
-  // ── Header bg on scroll ────────────────────────────────────────────
-  const hdr   = document.querySelector('header');
-  const topBtn = document.getElementById('page-top');
-
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    // Header solidify
-    hdr.style.background = y > 80 ? 'rgba(7,7,5,0.97)' : '';
-    // Page-top button visibility
-    topBtn.classList.toggle('show', y > 600);
-  }, { passive: true });
-
-  // ── Active nav highlight ───────────────────────────────────────────
-  const secs  = document.querySelectorAll('section[id]');
-  const navAs = document.querySelectorAll('.nav-a');
-  const sno   = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) {
-        navAs.forEach(a => { a.style.color = ''; });
-        const a = document.querySelector(`.nav-a[href="#${e.target.id}"]`);
-        if (a) a.style.color = '#c9a84c';
-      }
-    }),
-    { threshold: 0.4 }
-  );
-  secs.forEach(s => sno.observe(s));
-
-  // ── Menu filter ───────────────────────────────────────────────────
-  const ALL_CATS = ['beef','hormone','veg','dessert'];
-  // Default: show first 6 items (all cats, first 6)
-  let currentFilter = 'all';
-  const INIT_COUNT = 6; // 初期表示件数
-
-  function menuFilter(cat) {
-    currentFilter = cat;
-    const cells = document.querySelectorAll('#menu-grid .menu-cell');
-    document.querySelectorAll('.menu-filter-btn').forEach(b => {
-      b.classList.toggle('active', b.dataset.filter === cat);
-    });
-
-    const showAllWrap   = document.getElementById('show-all-wrap');
-    const drinkToggle   = document.getElementById('drink-toggle-wrap');
-    const drinkFull     = document.getElementById('drink-menu-full');
-    const drinkIcon     = document.getElementById('drink-toggle-icon');
-
-    if (cat === 'all') {
-      // 初期6件のみ表示、残りを隠す
-      cells.forEach((c, i) => c.classList.toggle('hidden-item', i >= INIT_COUNT));
-      if (showAllWrap) showAllWrap.classList.remove('hidden');
-      if (drinkToggle) drinkToggle.classList.add('hidden');
-      if (drinkFull)   drinkFull.classList.add('hidden');
-      if (drinkIcon)   drinkIcon.style.transform = '';
-    } else if (cat === 'drink') {
-      cells.forEach(c => c.classList.toggle('hidden-item', c.dataset.cat !== 'drink'));
-      if (showAllWrap) showAllWrap.classList.add('hidden');
-      if (drinkToggle) drinkToggle.classList.remove('hidden');
-    } else {
-      cells.forEach(c => c.classList.toggle('hidden-item', c.dataset.cat !== cat));
-      if (showAllWrap) showAllWrap.classList.add('hidden');
-      if (drinkToggle) drinkToggle.classList.add('hidden');
-      if (drinkFull)   drinkFull.classList.add('hidden');
-      if (drinkIcon)   drinkIcon.style.transform = '';
-    }
-  }
-
-  function showAllItems() {
-    const cells = document.querySelectorAll('#menu-grid .menu-cell');
-    cells.forEach(c => c.classList.remove('hidden-item'));
-    const wrap = document.getElementById('show-all-wrap');
-    if (wrap) wrap.classList.add('hidden');
-  }
-
-  function toggleDrinkMenu() {
-    const full = document.getElementById('drink-menu-full');
-    const icon = document.getElementById('drink-toggle-icon');
-    const btn  = document.getElementById('drink-toggle-btn');
-    if (!full) return;
-    const isOpen = !full.classList.contains('hidden');
-    full.classList.toggle('hidden', isOpen);
-    if (icon) icon.style.transform = isOpen ? '' : 'rotate(180deg)';
-    if (btn) btn.firstChild.textContent = isOpen ? 'ドリンクメニュー全品を見る' : 'ドリンクメニューを閉じる';
-    if (!isOpen) full.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  // 初期化：最初の6件だけ表示、「すべて表示」ボタンを出す
-  (function initMenu() {
-    const cells = document.querySelectorAll('#menu-grid .menu-cell');
-    cells.forEach((c, i) => { if (i >= INIT_COUNT) c.classList.add('hidden-item'); });
-  })();
-
-  // ── Smooth anchor clicks (mobile nav fallback) ─────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = 64; // header height
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+  // FAQアコーディオンのアニメーション
+  document.querySelectorAll('details').forEach(detail => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        document.querySelectorAll('details').forEach(other => {
+          if (other !== detail) other.removeAttribute('open');
+        });
       }
     });
   });
 
-  // ── Formspree 予約フォーム ─────────────────────────────────────────
-  (function() {
-    const form    = document.getElementById('reserve-form');
-    const success = document.getElementById('form-success');
-    const submitBtn = document.getElementById('form-submit-btn');
-    if (!form) return;
-
-    // 今日の日付を date input の min に設定（過去日付を選択不可に）
-    const dateInput = document.getElementById('f-date');
-    if (dateInput) {
-      const today = new Date().toISOString().split('T')[0];
-      dateInput.min = today;
-    }
-
-    function setError(id, msg) {
-      const el = document.getElementById('err-' + id);
-      const inp = document.getElementById('f-' + id);
-      if (el) el.textContent = msg;
-      if (inp) inp.classList.toggle('is-error', !!msg);
-    }
-
-    function validate() {
-      let ok = true;
-      const name  = document.getElementById('f-name').value.trim();
-      const tel   = document.getElementById('f-tel').value.trim();
-      const email = document.getElementById('f-email').value.trim();
-      const date  = document.getElementById('f-date').value;
-      const time  = document.getElementById('f-time').value;
-      const guests  = document.getElementById('f-guests').value;
-      const purpose = document.getElementById('f-purpose').value;
-
-      if (!name) { setError('name', 'お名前を入力してください'); ok = false; }
-      else setError('name', '');
-
-      if (!tel) { setError('tel', '電話番号を入力してください'); ok = false; }
-      else if (!/^[\d\-+() ]{7,15}$/.test(tel)) { setError('tel', '電話番号の形式が正しくありません'); ok = false; }
-      else setError('tel', '');
-
-      if (!email) { setError('email', 'メールアドレスを入力してください'); ok = false; }
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError('email', 'メールアドレスの形式が正しくありません'); ok = false; }
-      else setError('email', '');
-
-      if (!date) { setError('date', 'ご利用日を選択してください'); ok = false; }
-      else if (date < new Date().toISOString().split('T')[0]) { setError('date', '過去の日付は選択できません'); ok = false; }
-      else setError('date', '');
-
-      if (!time) { setError('time', 'ご利用時間を選択してください'); ok = false; }
-      else setError('time', '');
-
-      if (!guests) { setError('guests', 'ご利用人数を選択してください'); ok = false; }
-      else setError('guests', '');
-
-      if (!purpose) { setError('purpose', 'ご利用目的を選択してください'); ok = false; }
-      else setError('purpose', '');
-
-      return ok;
-    }
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      if (!validate()) return;
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '送信中…';
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.classList.add('hidden');
-          success.classList.remove('hidden');
-          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          const data = await res.json();
-          const msg = data.errors ? data.errors.map(e => e.message).join(', ') : '送信に失敗しました。お電話でのご予約をお試しください。';
-          alert(msg);
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> 予約リクエストを送信する';
-        }
-      } catch {
-        alert('通信エラーが発生しました。お電話 046-000-0000 よりご予約ください。');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> 予約リクエストを送信する';
+  // スクロールで要素をフェードイン
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
       }
     });
+  }, { threshold: 0.1 });
 
-    // リアルタイムバリデーション（blur時）
-    ['name','tel','email','date','time','guests','purpose'].forEach(id => {
-      const el = document.getElementById('f-' + id);
-      if (el) el.addEventListener('blur', validate);
-    });
-  })();
+  document.querySelectorAll('section > div').forEach(el => {
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    observer.observe(el);
+  });
 </script>
 
 </body>
