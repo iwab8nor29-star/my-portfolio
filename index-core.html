@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CORE（コア）| 部活時間、再開。社会人限定スポーツコミュニティ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              light: '#fff3e0',
+              DEFAULT: '#ffc68e',
+              dark: '#e8a060',
+            },
+            pink: {
+              accent: '#ff89c4',
+              light: '#fff0f7',
+            },
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* ===== ヒーロー背景 ===== */
+    .hero-bg {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(255,198,142,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 20% 60%, rgba(255,137,196,0.14) 0%, transparent 70%);
+    }
+
+    /* ===== セクション見出し装飾 ===== */
+    .section-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #ffc68e, #ff89c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ===== カード hover ===== */
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(255,198,142,0.22);
+    }
+
+    /* ===== ステップ線 ===== */
+    .step-line::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 40px;
+      background: linear-gradient(180deg, #ffc68e, #ff89c4);
+    }
+
+    /* ===== グラデーションボタン ===== */
+    .btn-gold {
+      background: linear-gradient(90deg, #ffc68e 0%, #ff89c4 100%);
+      color: #1a1a2e;
+      font-weight: 700;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-gold:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 2px solid #ffc68e;
+      color: #ffc68e;
+      font-weight: 700;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover {
+      background: #ffc68e;
+      color: #1a1a2e;
+    }
+
+    /* ===== FAQ アコーディオン ===== */
+    details > summary { cursor: pointer; list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.2s; }
+
+    /* ===== 料金チラシエリア ===== */
+    .price-frame {
+      border: 3px solid #ffc68e;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(255,198,142,0.2);
+    }
+
+    /* ===== アクセスエリア ===== */
+    .map-placeholder {
+      background: linear-gradient(135deg, #e8e8f0 0%, #d0d0e0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+
+    /* ===== LINE CTAボタン ===== */
+    .btn-line {
+      background: #06c755;
+      color: #fff;
+      font-weight: 700;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-line:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    /* ===== テキストグラデーション ===== */
+    .text-grad {
+      background: linear-gradient(90deg, #ffc68e, #ff89c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== 吹き出し ===== */
+    .bubble {
+      position: relative;
+    }
+    .bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -14px;
+      left: 28px;
+      border: 8px solid transparent;
+      border-top-color: #fff;
+    }
+
+    /* ===== ナビゲーション ===== */
+    #navbar {
+      transition: background 0.3s;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-gray-800">
+
+<!-- ========================================================
+     NAVIGATION
+======================================================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/90 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#" class="text-2xl font-black tracking-widest text-grad">CORE</a>
+    <div class="hidden md:flex items-center gap-6 text-sm text-gray-300">
+      <a href="#target" class="hover:text-gold-DEFAULT transition-colors">こんな方へ</a>
+      <a href="#reasons" class="hover:text-gold-DEFAULT transition-colors">選ばれる理由</a>
+      <a href="#flow" class="hover:text-gold-DEFAULT transition-colors">流れ</a>
+      <a href="#price" class="hover:text-gold-DEFAULT transition-colors">料金</a>
+      <a href="#voice" class="hover:text-gold-DEFAULT transition-colors">参加者の声</a>
+      <a href="#faq" class="hover:text-gold-DEFAULT transition-colors">FAQ</a>
+    </div>
+    <a href="#cta" class="btn-gold px-5 py-2 rounded-full text-sm shadow-lg">無料で登録する</a>
+  </div>
+</nav>
+
+<!-- ========================================================
+     1. HERO
+======================================================== -->
+<section class="hero-bg min-h-screen flex items-center pt-16">
+  <div class="relative z-10 max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+    <!-- テキスト -->
+    <div class="text-white">
+      <div class="inline-block bg-gradient-to-r from-gold-DEFAULT to-pink-accent text-[#1a1a2e] text-xs font-bold px-4 py-1.5 rounded-full mb-6 tracking-widest shadow">
+        社会人限定・月額制スポーツコミュニティ
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4">
+        <span class="text-grad">部活時間、</span><br/>再開。
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 font-medium mb-3">
+        学生時代に戻ってみませんか？
+      </p>
+      <p class="text-gray-400 leading-relaxed mb-8">
+        校庭や体育館で汗をかき、仲間と笑い合う。<br/>
+        社会人になっても、あの放課後をもう一度。<br/>
+        野球・サッカー・バスケ・バレー・テニスなど、<br/>
+        好きなスポーツで繋がれる居場所が<strong class="text-gold-DEFAULT">CORE</strong>です。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#cta" class="btn-gold inline-block text-center px-8 py-4 rounded-full text-lg shadow-xl">
+          📩 登録はこちら
+        </a>
+        <a href="#reasons" class="btn-outline inline-block text-center px-8 py-4 rounded-full text-lg">
+          詳しく見る
+        </a>
+      </div>
+      <!-- ソーシャルプルーフ -->
+      <div class="mt-10 flex items-center gap-6 text-sm text-gray-400">
+        <div class="text-center">
+          <div class="text-2xl font-black text-gold-DEFAULT">120<span class="text-base">名+</span></div>
+          <div>メンバー在籍</div>
+        </div>
+        <div class="w-px h-10 bg-gray-600"></div>
+        <div class="text-center">
+          <div class="text-2xl font-black text-gold-DEFAULT">5<span class="text-base">種目+</span></div>
+          <div>スポーツ対応</div>
+        </div>
+        <div class="w-px h-10 bg-gray-600"></div>
+        <div class="text-center">
+          <div class="text-2xl font-black text-gold-DEFAULT">4.9<span class="text-base">★</span></div>
+          <div>満足度</div>
+        </div>
+      </div>
+    </div>
+    <!-- ヒーロー画像 -->
+    <div class="flex justify-center">
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-gold-DEFAULT/30 to-pink-accent/30 blur-2xl"></div>
+        <img
+          src="https://placehold.co/520x480/1a1a2e/ffc68e?text=CORE+Sports+Community"
+          alt="COREのスポーツコミュニティの様子"
+          class="relative rounded-2xl shadow-2xl w-full max-w-md object-cover"
+        />
+        <!-- フローティングバッジ -->
+        <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 text-sm font-bold text-gray-700 border-l-4 border-gold-DEFAULT">
+          🏅 月額制だから<br/>無理なく続けられる
+        </div>
+        <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 text-sm font-bold text-gray-700 border-l-4 border-pink-accent">
+          ⚽ 学校施設で<br/>本格的に楽しめる
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 下部の波 -->
+  <div class="absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 60V30C360 0 720 60 1080 30C1260 15 1380 20 1440 30V60H0Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========================================================
+     2. こんな方へ
+======================================================== -->
+<section id="target" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">For You</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">こんな方へ</h2>
+      <p class="text-gray-500">ひとつでも当てはまったら、COREはあなたのための場所です。</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- チェックリスト 6個 -->
+      <div class="card-hover bg-gradient-to-br from-gold-light to-white border border-gold-DEFAULT/30 rounded-2xl p-6 flex items-start gap-4">
+        <span class="text-3xl flex-shrink-0">🏃</span>
+        <div>
+          <p class="font-bold text-gray-800">社会人になってから<br/>運動不足を感じている</p>
+        </div>
+      </div>
+      <div class="card-hover bg-gradient-to-br from-pink-light to-white border border-pink-accent/30 rounded-2xl p-6 flex items-start gap-4">
+        <span class="text-3xl flex-shrink-0">😊</span>
+        <div>
+          <p class="font-bold text-gray-800">学生時代みたいに<br/>仲間と体を動かしたい</p>
+        </div>
+      </div>
+      <div class="card-hover bg-gradient-to-br from-gold-light to-white border border-gold-DEFAULT/30 rounded-2xl p-6 flex items-start gap-4">
+        <span class="text-3xl flex-shrink-0">🎯</span>
+        <div>
+          <p class="font-bold text-gray-800">単なる「飲み会サークル」では<br/>なく本気でスポーツがしたい</p>
+        </div>
+      </div>
+      <div class="card-hover bg-gradient-to-br from-pink-light to-white border border-pink-accent/30 rounded-2xl p-6 flex items-start gap-4">
+        <span class="text-3xl flex-shrink-0">🏫</span>
+        <div>
+          <p class="font-bold text-gray-800">本格的な施設で<br/>思い切り動きたい</p>
+        </div>
+      </div>
+      <div class="card-hover bg-gradient-to-br from-gold-light to-white border border-gold-DEFAULT/30 rounded-2xl p-6 flex items-start gap-4">
+        <span class="text-3xl flex-shrink-0">🤝</span>
+        <div>
+          <p class="font-bold text-gray-800">職場・家族以外の<br/>新しいコミュニティが欲しい</p>
+        </div>
+      </div>
+      <div class="card-hover bg-gradient-to-br from-pink-light to-white border border-pink-accent/30 rounded-2xl p-6 flex items-start gap-4">
+        <span class="text-3xl flex-shrink-0">💪</span>
+        <div>
+          <p class="font-bold text-gray-800">楽しみながら<br/>体を鍛え続けたい</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     3. 5つの理由
+======================================================== -->
+<section id="reasons" class="py-20 bg-[#1a1a2e]">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">Why CORE?</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4 text-white">
+        このコミュニティにしかできない<br class="md:hidden"/><span class="text-grad">5つの理由</span>
+      </h2>
+      <p class="text-gray-400">COREが選ばれ続ける、他にはない特徴です。</p>
+    </div>
+    <div class="grid md:grid-cols-5 gap-5">
+      <!-- 理由1 -->
+      <div class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 text-center text-white hover:border-gold-DEFAULT/50">
+        <div class="text-4xl mb-3">🏫</div>
+        <div class="text-gold-DEFAULT font-black text-sm mb-2">REASON 01</div>
+        <h3 class="font-bold text-base mb-2">学校施設を<br/>丸ごと使用</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">校庭・体育館・グラウンドなど、学生時代と同じ本格施設でプレーできます。</p>
+      </div>
+      <!-- 理由2 -->
+      <div class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 text-center text-white hover:border-pink-accent/50">
+        <div class="text-4xl mb-3">⚽🏀🎾</div>
+        <div class="text-pink-accent font-black text-sm mb-2">REASON 02</div>
+        <h3 class="font-bold text-base mb-2">5種目以上の<br/>スポーツに対応</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">野球・サッカー・バスケ・バレー・テニスなど、好きな種目を選べます。</p>
+      </div>
+      <!-- 理由3 -->
+      <div class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 text-center text-white hover:border-gold-DEFAULT/50">
+        <div class="text-4xl mb-3">💰</div>
+        <div class="text-gold-DEFAULT font-black text-sm mb-2">REASON 03</div>
+        <h3 class="font-bold text-base mb-2">月額制で<br/>コスパ最高</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">都度払い不要。月額固定だから気軽に何度でも参加できます。</p>
+      </div>
+      <!-- 理由4 -->
+      <div class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 text-center text-white hover:border-pink-accent/50">
+        <div class="text-4xl mb-3">🕐</div>
+        <div class="text-pink-accent font-black text-sm mb-2">REASON 04</div>
+        <h3 class="font-bold text-base mb-2">社会人の<br/>スケジュールに配慮</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">平日夜・週末など、仕事後でも参加しやすい時間帯に開催。</p>
+      </div>
+      <!-- 理由5 -->
+      <div class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 text-center text-white hover:border-gold-DEFAULT/50">
+        <div class="text-4xl mb-3">🎉</div>
+        <div class="text-gold-DEFAULT font-black text-sm mb-2">REASON 05</div>
+        <h3 class="font-bold text-base mb-2">放課後のような<br/>アットホームな雰囲気</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">試合・記録より「楽しむ」ことを優先。初心者も大歓迎！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     4. コミュニティの流れ
+======================================================== -->
+<section id="flow" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">How It Works</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">コミュニティの流れ</h2>
+      <p class="text-gray-500">登録から参加まで、5ステップでかんたんに始められます。</p>
+    </div>
+    <!-- ステップ（縦フロー） -->
+    <div class="relative">
+      <!-- 縦の繋ぎ線 -->
+      <div class="absolute left-10 top-14 bottom-14 w-0.5 bg-gradient-to-b from-gold-DEFAULT via-pink-accent to-gold-DEFAULT opacity-30 hidden md:block"></div>
+
+      <div class="space-y-5">
+
+        <!-- Step 1 -->
+        <div class="relative flex items-stretch gap-6">
+          <!-- 番号バッジ -->
+          <div class="flex-shrink-0 flex flex-col items-center">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex flex-col items-center justify-center shadow-xl">
+              <span class="text-[#1a1a2e] text-xs font-bold tracking-widest leading-none">STEP</span>
+              <span class="text-[#1a1a2e] text-4xl font-black leading-none">1</span>
+            </div>
+          </div>
+          <!-- カード -->
+          <div class="flex-1 bg-gray-50 rounded-2xl p-5 border border-gray-100 flex items-center gap-4">
+            <span class="text-3xl">📩</span>
+            <div>
+              <h3 class="font-black text-lg mb-0.5">LINEで無料登録</h3>
+              <p class="text-gray-500 text-sm">LINE公式アカウントに友達追加して、簡単な質問に答えるだけ。5分で完了します。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 矢印 -->
+        <div class="flex items-center gap-6">
+          <div class="w-20 flex justify-center flex-shrink-0">
+            <div class="w-0.5 h-5 bg-gradient-to-b from-gold-DEFAULT to-pink-accent"></div>
+          </div>
+          <div class="flex-1 border-t border-dashed border-gray-200"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative flex items-stretch gap-6">
+          <div class="flex-shrink-0 flex flex-col items-center">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex flex-col items-center justify-center shadow-xl">
+              <span class="text-[#1a1a2e] text-xs font-bold tracking-widest leading-none">STEP</span>
+              <span class="text-[#1a1a2e] text-4xl font-black leading-none">2</span>
+            </div>
+          </div>
+          <div class="flex-1 bg-gray-50 rounded-2xl p-5 border border-gray-100 flex items-center gap-4">
+            <span class="text-3xl">💳</span>
+            <div>
+              <h3 class="font-black text-lg mb-0.5">プランを選んで入会</h3>
+              <p class="text-gray-500 text-sm">ご自身のライフスタイルに合わせたプランを選択し、月額料金をお支払いいただきます。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 矢印 -->
+        <div class="flex items-center gap-6">
+          <div class="w-20 flex justify-center flex-shrink-0">
+            <div class="w-0.5 h-5 bg-gradient-to-b from-gold-DEFAULT to-pink-accent"></div>
+          </div>
+          <div class="flex-1 border-t border-dashed border-gray-200"></div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative flex items-stretch gap-6">
+          <div class="flex-shrink-0 flex flex-col items-center">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex flex-col items-center justify-center shadow-xl">
+              <span class="text-[#1a1a2e] text-xs font-bold tracking-widest leading-none">STEP</span>
+              <span class="text-[#1a1a2e] text-4xl font-black leading-none">3</span>
+            </div>
+          </div>
+          <div class="flex-1 bg-gray-50 rounded-2xl p-5 border border-gray-100 flex items-center gap-4">
+            <span class="text-3xl">💬</span>
+            <div>
+              <h3 class="font-black text-lg mb-0.5">グループLINEに招待</h3>
+              <p class="text-gray-500 text-sm">メンバー専用のグループLINEへご招待。日程や種目の告知がここで届きます。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 矢印 -->
+        <div class="flex items-center gap-6">
+          <div class="w-20 flex justify-center flex-shrink-0">
+            <div class="w-0.5 h-5 bg-gradient-to-b from-gold-DEFAULT to-pink-accent"></div>
+          </div>
+          <div class="flex-1 border-t border-dashed border-gray-200"></div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative flex items-stretch gap-6">
+          <div class="flex-shrink-0 flex flex-col items-center">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex flex-col items-center justify-center shadow-xl">
+              <span class="text-[#1a1a2e] text-xs font-bold tracking-widest leading-none">STEP</span>
+              <span class="text-[#1a1a2e] text-4xl font-black leading-none">4</span>
+            </div>
+          </div>
+          <div class="flex-1 bg-gray-50 rounded-2xl p-5 border border-gray-100 flex items-center gap-4">
+            <span class="text-3xl">🏃</span>
+            <div>
+              <h3 class="font-black text-lg mb-0.5">好きな日程に参加</h3>
+              <p class="text-gray-500 text-sm">参加したいイベントを選んで申し込むだけ。何度でも参加OK。学校の体育館や校庭で楽しみましょう！</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 矢印 -->
+        <div class="flex items-center gap-6">
+          <div class="w-20 flex justify-center flex-shrink-0">
+            <div class="w-0.5 h-5 bg-gradient-to-b from-gold-DEFAULT to-pink-accent"></div>
+          </div>
+          <div class="flex-1 border-t border-dashed border-gray-200"></div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative flex items-stretch gap-6">
+          <div class="flex-shrink-0 flex flex-col items-center">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-accent to-gold-DEFAULT flex flex-col items-center justify-center shadow-xl ring-4 ring-gold-DEFAULT/30">
+              <span class="text-[#1a1a2e] text-xs font-bold tracking-widest leading-none">STEP</span>
+              <span class="text-[#1a1a2e] text-4xl font-black leading-none">5</span>
+            </div>
+          </div>
+          <div class="flex-1 bg-gradient-to-br from-gold-light to-pink-light rounded-2xl p-5 border border-gold-DEFAULT/30 flex items-center gap-4">
+            <span class="text-3xl">🎉</span>
+            <div>
+              <h3 class="font-black text-lg mb-0.5">仲間と交流・リピート参加</h3>
+              <p class="text-gray-500 text-sm">活動後にそのまま仲間と食事や交流も。毎月の参加で自然と絆が深まります。</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     5. 料金案内
+======================================================== -->
+<section id="price" class="py-20 bg-[#fafafa]">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">Pricing</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">料金案内</h2>
+      <p class="text-gray-500">月額制だから、何度参加してもOK。</p>
+    </div>
+
+    <!-- チラシ画像エリア -->
+    <div class="price-frame mb-10">
+      <!--
+        【STUDIO編集メモ】
+        下の <img> タグの src を実際のチラシ画像URLに変更してください。
+        推奨サイズ: 横1200px × 縦900px 以上のJPG/PNG
+      -->
+      <img
+        src="https://placehold.co/1200x900/fff3e0/ffc68e?text=料金チラシ画像をここに差し替え%0A(1200×900px推奨)"
+        alt="CORE料金チラシ"
+        class="w-full object-contain"
+      />
+    </div>
+
+    <!-- 料金カード（チラシ補足） -->
+    <div class="grid sm:grid-cols-3 gap-5">
+      <div class="card-hover bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm">
+        <div class="text-sm font-bold text-gray-400 mb-1">ライトプラン</div>
+        <div class="text-3xl font-black text-gray-800 mb-1">¥2,980<span class="text-base font-medium text-gray-400">/月</span></div>
+        <div class="text-xs text-gray-400 mb-4">月2回まで参加可能</div>
+        <ul class="text-sm text-gray-600 space-y-1.5 text-left">
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>グループLINE参加</li>
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>月2回までイベント参加</li>
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>全種目対応</li>
+        </ul>
+      </div>
+      <div class="card-hover bg-gradient-to-br from-gold-DEFAULT to-pink-accent rounded-2xl p-6 text-center shadow-xl scale-105">
+        <div class="text-xs font-bold text-[#1a1a2e]/70 mb-1 bg-white/30 rounded-full px-2 py-0.5 inline-block">人気No.1</div>
+        <div class="text-sm font-bold text-[#1a1a2e] mb-1">スタンダードプラン</div>
+        <div class="text-3xl font-black text-[#1a1a2e] mb-1">¥4,980<span class="text-base font-medium text-[#1a1a2e]/70">/月</span></div>
+        <div class="text-xs text-[#1a1a2e]/70 mb-4">月4回まで参加可能</div>
+        <ul class="text-sm text-[#1a1a2e] space-y-1.5 text-left">
+          <li class="flex items-center gap-2"><span>✓</span>グループLINE参加</li>
+          <li class="flex items-center gap-2"><span>✓</span>月4回までイベント参加</li>
+          <li class="flex items-center gap-2"><span>✓</span>全種目対応</li>
+          <li class="flex items-center gap-2"><span>✓</span>優先予約権</li>
+        </ul>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm">
+        <div class="text-sm font-bold text-gray-400 mb-1">プレミアムプラン</div>
+        <div class="text-3xl font-black text-gray-800 mb-1">¥7,980<span class="text-base font-medium text-gray-400">/月</span></div>
+        <div class="text-xs text-gray-400 mb-4">参加し放題</div>
+        <ul class="text-sm text-gray-600 space-y-1.5 text-left">
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>グループLINE参加</li>
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>参加回数無制限</li>
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>全種目対応</li>
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>優先予約権</li>
+          <li class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>特別イベント招待</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center text-xs text-gray-400 mt-6">※ 初月は日割り計算。翌月から通常料金。いつでも退会可能です。</p>
+  </div>
+</section>
+
+<!-- ========================================================
+     6. 参加者の声
+======================================================== -->
+<section id="voice" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">Voices</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">参加者の声</h2>
+      <p class="text-gray-500">実際に参加しているメンバーのリアルな声をご紹介します。</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- 声1 -->
+      <div class="flex flex-col">
+        <div class="bubble bg-white border border-gray-100 shadow-md rounded-2xl p-6 mb-5 flex-1">
+          <div class="flex items-center gap-1 mb-3 text-gold-DEFAULT">
+            ★★★★★
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            「20代のころバスケ部だったので、また本格的にできる場所を探していました。COREでは体育館でしっかり動けるし、同じ社会人と気兼ねなく楽しめるのが最高です！仕事の話もできる友達もできました。」
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pl-2">
+          <img src="https://placehold.co/56/ffc68e/1a1a2e?text=T" alt="" class="w-14 h-14 rounded-full object-cover border-2 border-gold-DEFAULT" />
+          <div>
+            <div class="font-bold text-sm">T.K. さん <span class="text-gray-400 font-normal">（34歳・男性）</span></div>
+            <div class="text-xs text-gray-400">バスケットボール歴10年 / 参加5ヶ月</div>
+          </div>
+        </div>
+      </div>
+      <!-- 声2 -->
+      <div class="flex flex-col">
+        <div class="bubble bg-white border border-gray-100 shadow-md rounded-2xl p-6 mb-5 flex-1">
+          <div class="flex items-center gap-1 mb-3 text-gold-DEFAULT">
+            ★★★★★
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            「子育てや仕事で体を動かす機会がなくなっていたので参加しました。週末に学校のグラウンドでサッカーできるなんて、学生時代に戻った気分！参加者みんなが温かくて、すぐ馴染めました。」
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pl-2">
+          <img src="https://placehold.co/56/ff89c4/1a1a2e?text=M" alt="" class="w-14 h-14 rounded-full object-cover border-2 border-pink-accent" />
+          <div>
+            <div class="font-bold text-sm">M.S. さん <span class="text-gray-400 font-normal">（29歳・女性）</span></div>
+            <div class="text-xs text-gray-400">サッカー / 参加3ヶ月</div>
+          </div>
+        </div>
+      </div>
+      <!-- 声3 -->
+      <div class="flex flex-col">
+        <div class="bubble bg-white border border-gray-100 shadow-md rounded-2xl p-6 mb-5 flex-1">
+          <div class="flex items-center gap-1 mb-3 text-gold-DEFAULT">
+            ★★★★★
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            「月額で複数回参加できるコスパに驚きました。野球だけでなくテニスにも挑戦できて、新しい趣味が増えました。スポーツ後の交流タイムも楽しくて、毎月参加するのが生き甲斐になっています！」
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pl-2">
+          <img src="https://placehold.co/56/ffc68e/1a1a2e?text=R" alt="" class="w-14 h-14 rounded-full object-cover border-2 border-gold-DEFAULT" />
+          <div>
+            <div class="font-bold text-sm">R.A. さん <span class="text-gray-400 font-normal">（41歳・男性）</span></div>
+            <div class="text-xs text-gray-400">野球・テニス / 参加8ヶ月</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     7. 代表挨拶
+======================================================== -->
+<section id="about" class="py-20 bg-[#1a1a2e]">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">Representative</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4 text-white">代表挨拶</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <!-- 写真・プロフィール -->
+      <div class="text-center">
+        <!--
+          【STUDIO編集メモ】
+          下の <img> タグの src を代表者の実際の写真URLに変更してください。
+        -->
+        <img
+          src="https://placehold.co/360x400/ffc68e/1a1a2e?text=代表者写真%0A(360×400px推奨)"
+          alt="CORE代表"
+          class="w-64 h-72 object-cover rounded-2xl mx-auto mb-6 border-4 border-gold-DEFAULT shadow-xl"
+        />
+        <div class="bg-white/10 rounded-2xl p-5 text-left">
+          <div class="text-gold-DEFAULT font-black text-xs tracking-widest mb-3">PROFILE</div>
+          <div class="text-white font-black text-xl mb-1">佐藤 ◯◯（さとう ◯◯）</div>
+          <div class="text-gray-400 text-sm mb-4">CORE コミュニティ代表</div>
+          <div class="space-y-2 text-sm text-gray-300">
+            <div class="flex gap-2"><span class="text-gold-DEFAULT font-bold w-12 flex-shrink-0">経歴</span><span>○○大学 ○○学部卒業<br/>社会人歴○年。学校体育施設を活用した地域スポーツ普及に従事。</span></div>
+            <div class="flex gap-2"><span class="text-gold-DEFAULT font-bold w-12 flex-shrink-0">資格</span><span>スポーツ指導員（日本スポーツ協会）<br/>○○コーチングライセンス 他</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- メッセージ -->
+      <div class="text-white">
+        <div class="text-gold-DEFAULT font-black text-xs tracking-widest mb-4">MESSAGE FROM REPRESENTATIVE</div>
+        <h3 class="text-2xl font-black mb-6 leading-tight">
+          「あの放課後の<span class="text-grad">熱量</span>を、<br/>もう一度取り戻したい。」
+        </h3>
+        <div class="space-y-4 text-gray-300 leading-relaxed text-sm">
+          <p>
+            社会人になると、「体を動かしたい」という気持ちはあっても、なかなか機会がなくなりますよね。
+            趣味のサークルに入ってみたけれど、なんとなく表面的な付き合いで終わってしまった——そんな経験はありませんか？
+          </p>
+          <p>
+            私自身、学生時代は部活に打ち込んでいましたが、社会人になってから「あの感覚」が忘れられず、
+            <strong class="text-gold-DEFAULT">学校という場所で、社会人が本気で部活できるコミュニティ</strong>を立ち上げました。
+          </p>
+          <p>
+            COREは単なるスポーツサークルではありません。汗をかいて、笑って、ときに悔しんで、
+            仲間と一緒に成長できる「居場所」です。
+            スポーツ歴は関係ありません。初心者も、久しぶりの方も、大歓迎です。
+          </p>
+          <p>
+            ぜひ一度、あの「放課後」を一緒に取り戻しましょう。
+          </p>
+        </div>
+        <div class="mt-8 border-t border-white/10 pt-6">
+          <div class="text-right text-gray-400 text-sm">CORE 代表</div>
+          <div class="text-right font-black text-xl text-white">佐藤 ◯◯</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     8. よくある質問
+======================================================== -->
+<section id="faq" class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">FAQ</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">よくある質問</h2>
+      <p class="text-gray-500">気になる点はここで解決しましょう。</p>
+    </div>
+    <div class="space-y-4">
+      <!-- Q1 -->
+      <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between p-5 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex items-center justify-center text-xs font-black text-[#1a1a2e]">Q</span>
+            <span class="font-bold text-gray-800">スポーツ初心者でも参加できますか？</span>
+          </div>
+          <span class="faq-icon flex-shrink-0 ml-4 text-gray-400 text-2xl font-light">+</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+          もちろん大歓迎です！COREは「楽しむこと」を最優先にしているため、記録・競技成績は一切問いません。
+          初めての方にはメンバーが丁寧にルールを教えますので、安心してご参加ください。
+        </div>
+      </details>
+      <!-- Q2 -->
+      <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between p-5 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex items-center justify-center text-xs font-black text-[#1a1a2e]">Q</span>
+            <span class="font-bold text-gray-800">毎回参加しないといけませんか？</span>
+          </div>
+          <span class="faq-icon flex-shrink-0 ml-4 text-gray-400 text-2xl font-light">+</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+          いいえ、参加は任意です。月額プランの範囲内で、参加したい日程を選んで申し込む形式です。
+          仕事の都合や体調によってお休みしていただいて全く問題ありません。
+        </div>
+      </details>
+      <!-- Q3 -->
+      <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between p-5 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex items-center justify-center text-xs font-black text-[#1a1a2e]">Q</span>
+            <span class="font-bold text-gray-800">道具や用具は持参が必要ですか？</span>
+          </div>
+          <span class="faq-icon flex-shrink-0 ml-4 text-gray-400 text-2xl font-light">+</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+          基本的な用具（ボールなど）はコミュニティ側で準備しています。
+          ただし、グローブ・ラケットなど個人の手に合う道具は各自でご用意いただけると、より快適にプレーできます。
+          詳細はグループLINEでご案内します。
+        </div>
+      </details>
+      <!-- Q4 -->
+      <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between p-5 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex items-center justify-center text-xs font-black text-[#1a1a2e]">Q</span>
+            <span class="font-bold text-gray-800">退会はいつでもできますか？</span>
+          </div>
+          <span class="faq-icon flex-shrink-0 ml-4 text-gray-400 text-2xl font-light">+</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+          はい、翌月分の請求が発生する前（毎月末日まで）に申請いただければ、いつでも退会可能です。
+          違約金・退会手数料は一切かかりません。
+        </div>
+      </details>
+      <!-- Q5 -->
+      <details class="border border-gray-200 rounded-2xl overflow-hidden group">
+        <summary class="flex items-center justify-between p-5 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-gold-DEFAULT to-pink-accent flex items-center justify-center text-xs font-black text-[#1a1a2e]">Q</span>
+            <span class="font-bold text-gray-800">どのような施設で活動しますか？</span>
+          </div>
+          <span class="faq-icon flex-shrink-0 ml-4 text-gray-400 text-2xl font-light">+</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+          地域の学校の校庭・体育館を中心に活動します。正式な施設利用許可を取得しているため、
+          安心して本格的な環境でスポーツを楽しめます。具体的な会場は毎回グループLINEでご案内します。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     9. アクセス・活動時間
+======================================================== -->
+<section id="access" class="py-20 bg-[#fafafa]">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-badge">Access</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">アクセス・活動時間</h2>
+      <p class="text-gray-500">活動場所や時間は定期的に更新されます。</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <!-- テーブル -->
+      <div>
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+          <table class="w-full text-sm">
+            <tbody>
+              <tr class="border-b border-gray-50">
+                <td class="px-5 py-4 font-bold text-gray-500 w-32 bg-gray-50">活動エリア</td>
+                <td class="px-5 py-4 text-gray-800">○○市内の学校施設<br/><span class="text-xs text-gray-400">（詳細はグループLINEで案内）</span></td>
+              </tr>
+              <tr class="border-b border-gray-50">
+                <td class="px-5 py-4 font-bold text-gray-500 bg-gray-50">平日</td>
+                <td class="px-5 py-4 text-gray-800">19:00 〜 21:00</td>
+              </tr>
+              <tr class="border-b border-gray-50">
+                <td class="px-5 py-4 font-bold text-gray-500 bg-gray-50">土曜</td>
+                <td class="px-5 py-4 text-gray-800">9:00 〜 12:00 / 14:00 〜 17:00</td>
+              </tr>
+              <tr class="border-b border-gray-50">
+                <td class="px-5 py-4 font-bold text-gray-500 bg-gray-50">日曜・祝日</td>
+                <td class="px-5 py-4 text-gray-800">9:00 〜 12:00</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-4 font-bold text-gray-500 bg-gray-50">対応種目</td>
+                <td class="px-5 py-4 text-gray-800">野球・サッカー・バスケ・バレー・テニス 他</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-gray-400">※ 活動日程・会場は月によって変動します。最新情報はLINE公式にてご確認ください。</p>
+      </div>
+      <!-- 地図エリア -->
+      <div>
+        <div class="map-placeholder rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+          <!--
+            【STUDIO編集メモ】
+            Google マップの埋め込みコードをここに貼り付けてください。
+            例: <iframe src="https://www.google.com/maps/embed?..." ...></iframe>
+            または下のダミー画像を実際のマップ画像に差し替えてください。
+          -->
+          <img
+            src="https://placehold.co/600x300/e8e8f0/aaaacc?text=Google+マップをここに埋め込む%0A(STUDIOで編集時に差し替え)"
+            alt="地図"
+            class="w-full h-72 object-cover"
+          />
+        </div>
+        <div class="mt-4 bg-white rounded-xl p-4 border border-gray-100 shadow-sm text-sm">
+          <div class="font-bold text-gray-700 mb-1">🚃 アクセス例</div>
+          <div class="text-gray-500">○○駅 東口より徒歩○分<br/>駐車場：○台（無料）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     10. 予約CTA
+======================================================== -->
+<section id="cta" class="py-24 bg-[#1a1a2e] relative overflow-hidden">
+  <!-- 背景装飾 -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-gold-DEFAULT/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-accent/10 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
+    <span class="section-badge text-base">Join CORE</span>
+    <h2 class="text-3xl md:text-5xl font-black text-white mt-3 mb-4 leading-tight">
+      あなたの<span class="text-grad">部活時間</span>を<br/>再開しませんか？
+    </h2>
+    <p class="text-gray-400 mb-10 text-base leading-relaxed">
+      まずはLINE公式アカウントに友達追加するだけ。<br/>
+      無料で詳細情報を受け取れます。勧誘・迷惑メールは一切ありません。
+    </p>
+    <!-- LINE CTA -->
+    <a
+      href="https://lin.ee/XXXXXXXX"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-line inline-flex items-center gap-3 px-10 py-5 rounded-full text-xl font-black shadow-2xl"
+    >
+      <!-- LINE アイコン -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 48 48" fill="white">
+        <path d="M24 4C12.95 4 4 11.76 4 21.35c0 5.55 3.04 10.48 7.77 13.73-.34 1.27-1.22 4.61-1.4 5.33-.22.89.33.88.69.64.28-.19 4.53-2.99 6.37-4.2.82.12 1.66.18 2.57.18 11.05 0 20-7.76 20-17.35S35.05 4 24 4z"/>
+      </svg>
+      LINEで無料登録する
+    </a>
+    <p class="text-gray-500 text-xs mt-4">LINEアプリが開きます。友達追加後、登録フォームをお送りします。</p>
+
+    <!-- 安心バッジ -->
+    <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+      <div class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>登録無料</div>
+      <div class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>勧誘・強引な営業なし</div>
+      <div class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>いつでも退会OK</div>
+      <div class="flex items-center gap-2"><span class="text-gold-DEFAULT">✓</span>初心者歓迎</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     FOOTER
+======================================================== -->
+<footer class="bg-[#0d0d1a] py-10 text-center text-gray-500 text-sm">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-2xl font-black text-grad mb-2">CORE</div>
+    <p class="text-xs mb-4">部活時間、再開。— 社会人限定スポーツコミュニティ</p>
+    <div class="flex flex-wrap justify-center gap-5 text-xs text-gray-600 mb-6">
+      <a href="#target" class="hover:text-gold-DEFAULT transition-colors">こんな方へ</a>
+      <a href="#reasons" class="hover:text-gold-DEFAULT transition-colors">選ばれる理由</a>
+      <a href="#flow" class="hover:text-gold-DEFAULT transition-colors">流れ</a>
+      <a href="#price" class="hover:text-gold-DEFAULT transition-colors">料金</a>
+      <a href="#voice" class="hover:text-gold-DEFAULT transition-colors">参加者の声</a>
+      <a href="#about" class="hover:text-gold-DEFAULT transition-colors">代表挨拶</a>
+      <a href="#faq" class="hover:text-gold-DEFAULT transition-colors">FAQ</a>
+      <a href="#access" class="hover:text-gold-DEFAULT transition-colors">アクセス</a>
+    </div>
+    <p class="text-xs text-gray-700">&copy; 2025 CORE. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ========================================================
+     FLOATING CTA BUTTON (モバイル)
+======================================================== -->
+<div class="fixed bottom-5 right-4 z-50 md:hidden">
+  <a href="#cta" class="btn-line flex items-center gap-2 px-5 py-3 rounded-full shadow-2xl text-sm font-bold">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 48 48" fill="white">
+      <path d="M24 4C12.95 4 4 11.76 4 21.35c0 5.55 3.04 10.48 7.77 13.73-.34 1.27-1.22 4.61-1.4 5.33-.22.89.33.88.69.64.28-.19 4.53-2.99 6.37-4.2.82.12 1.66.18 2.57.18 11.05 0 20-7.76 20-17.35S35.05 4 24 4z"/>
+    </svg>
+    LINE登録
+  </a>
+</div>
+
+<!-- ========================================================
+     SCROLL ANIMATION (軽量版)
+======================================================== -->
+<script>
+  // IntersectionObserver でフェードイン
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('opacity-100', 'translate-y-0');
+        e.target.classList.remove('opacity-0', 'translate-y-6');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section > div').forEach(el => {
+    el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-6');
+    observer.observe(el);
+  });
+
+  // ナビゲーション 背景変化
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 80) {
+      nav.classList.add('bg-[#1a1a2e]/95');
+    } else {
+      nav.classList.remove('bg-[#1a1a2e]/95');
+    }
+  });
+</script>
+
+</body>
+</html>
